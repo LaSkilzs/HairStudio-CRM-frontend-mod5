@@ -3,10 +3,9 @@ import ProfileCard from "./ProfileCard";
 
 const ProfileList = () => {
   return (
-    <div>
-      <ul>ProfileList</ul>
+    <ul className="profile-list">
       <ProfileCard />
-    </div>
+    </ul>
   );
 };
 export default ProfileList;

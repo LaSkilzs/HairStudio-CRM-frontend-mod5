@@ -1,0 +1,17 @@
+.main-gallery {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  border: 2px solid var(--brown);
+}
+
+.gallery-label {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 10px;
+  padding: 5px;
+}
+
+.gallery-select {
+  font-size: 15px;
+}

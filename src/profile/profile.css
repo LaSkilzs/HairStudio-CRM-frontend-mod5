@@ -1,0 +1,145 @@
+#Profile {
+  background-color: var(--light);
+  /* height: 100vh; */
+}
+
+.profile-container {
+  height: 80vh;
+  display: grid;
+  grid-template-rows: auto 200px;
+  grid-template-areas: "profile-info" "profile-list";
+}
+
+.profile-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "left right";
+  /* max-height: 50vh; */
+}
+
+#profile-left {
+  grid-area: left;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.profile-header {
+  display: flex;
+  padding: 0.5rem;
+  text-align: center;
+}
+h3 {
+  margin-right: 5rem;
+}
+
+.images {
+  margin-top: 30px;
+  width: 25rem;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.profile-btn {
+  width: 25rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--brown);
+  border: 2px solid var(--brown);
+}
+
+.profile-btn:hover {
+  color: var(--light);
+  background: var(--brown);
+}
+
+#profile-right {
+  grid-area: right;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  margin-top: 3rem;
+  max-height: 25vh;
+  max-width: 40vw;
+}
+
+.profile-appt-title {
+  background-color: var(--light);
+}
+
+.profile-ul {
+  list-style-type: none;
+  border: 2px solid var(--brown);
+  height: 30vh;
+  background: var(--pink);
+}
+
+.profile-receipt {
+  background-color: var(--brown);
+  justify-content: center;
+  padding: 2rem;
+}
+
+.profile-links {
+  margin-top: 0.7rem;
+}
+
+.button {
+  display: block;
+  max-width: 20vw;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--brown);
+  border: 2px solid var(--brown);
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin: auto;
+}
+
+.profile-list {
+  background-color: white;
+}
+
+.profile-appt-list {
+  margin: 0;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 400px;
+  background-color: orange;
+}
+
+.profile-appointments {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--brown);
+  color: var(--light);
+  font-size: 20px;
+  font-style: italic;
+}
+.appointment {
+  background-color: var(--pink);
+  height: 9rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  /* grid-template-areas: "date time hairstyle stylist appointment"; */
+}
+
+.date {
+  grid-area: date;
+}
+.time {
+  grid-area: time;
+}
+.hairstyle {
+  grid-area: time;
+}
+.stylist {
+  grid-area: time;
+}
+.appointment {
+  grid-area: time;
+}

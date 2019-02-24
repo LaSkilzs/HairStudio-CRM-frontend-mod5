@@ -1,0 +1,37 @@
+#dashboard {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dashboard-btn {
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+  width: 30%;
+  font-size: 20px;
+  border: 1px solid var(--brown);
+  background: transparent;
+  color: var(--brown);
+  margin-left: 35%;
+  text-align: center;
+}
+
+.dashboard-butn {
+  padding: 5px;
+  width: 10%;
+  font-size: 15px;
+  color: var(--light);
+  border: 1px solid var(--light);
+  background: transparent;
+  border-radius: 5px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid black;
+  background-color: var(--brown);
+  color: var(--light);
+}
