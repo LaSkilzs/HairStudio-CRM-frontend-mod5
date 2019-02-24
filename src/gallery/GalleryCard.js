@@ -8,10 +8,10 @@ const GalleryCard = () => {
           src={require("../images/shop_photos/short-cut-4a.jpg")}
           alt="image1"
         />
-        {/* <img
+        <img
           src={require("../images/shop_photos/short-cut-4b.jpg")}
           alt="image1"
-        /> */}
+        />
         <img
           src={require("../images/shop_photos/short-cut-4d.jpg")}
           alt="image1"
@@ -29,10 +29,6 @@ const GalleryCard = () => {
           alt="image1"
         />
         <img
-          src={require("../images/shop_photos/long-hair.jpg")}
-          alt="image1"
-        />
-        <img
           src={require("../images/shop_photos/long-haira.jpg")}
           alt="image1"
         />
@@ -45,14 +41,7 @@ const GalleryCard = () => {
           src={require("../images/shop_photos/short-cut-3c.jpg")}
           alt="image1"
         />
-        {/* <img
-          src={require("../images/shop_photos/long-kink2b.jpg")}
-          alt="image1"
-        />
-        <img
-          src={require("../images/shop_photos/long-kink3a.jpg")}
-          alt="image1"
-        /> */}
+
         <img
           src={require("../images/shop_photos/kid-braids1.jpg")}
           alt="image1"
