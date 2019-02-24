@@ -4,18 +4,20 @@ import Profile from "../profile/Profile";
 import Appointment from "../appointment/Appointment";
 import NewsFeed from "../newsfeed/NewsFeed";
 import Calendar from "../calendar/Calendar";
+import "../css/login.css";
 
 class Login extends React.Component {
   render() {
     return (
-      <div>
-        <h2>Login has Come to break up the Party!!</h2>
-        <LoginCard />
-        <Profile />
-        <Appointment />
-        <Calendar />
-        <NewsFeed />
-      </div>
+      <section id="Login">
+        <div className="login-container">
+          <LoginCard />
+          <Profile />
+          <Appointment />
+          <Calendar />
+          <NewsFeed />
+        </div>
+      </section>
     );
   }
 }

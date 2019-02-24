@@ -1,0 +1,138 @@
+#Login {
+  background-color: var(--pink);
+}
+
+.login-container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 200px, auto;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.login-card {
+  background-color: var(--brown);
+  color: var(--light);
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#right {
+  flex: 1;
+}
+
+/* Sigin */
+
+#sigin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding-bottom: 1rem;
+}
+
+#signin form {
+  width: 80%;
+  padding-bottom: 3rem;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 0.9rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+.text-input {
+  margin-bottom: 1.3rem;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--light);
+  color: var(--brown);
+  padding: 0.5rem 1rem;
+  line-height: 1.3rem;
+}
+
+.primary-btn {
+  padding: 0.7rem 1rem;
+  height: 2.7rem;
+  display: block;
+  border: 0;
+  border-radius: 2px;
+  font-weight: 500;
+  background: transparent;
+  border: 2px solid var(--light);
+  color: var(--light);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s;
+  width: 100%;
+}
+.primary-btn:hover {
+  color: var(--brown);
+  background: var(--light);
+}
+
+.secondary-btn {
+  padding: 0.7rem 1rem;
+  height: 2.7rem;
+  display: block;
+  border: 1px solid var(--light);
+  border-radius: 2px;
+  font-weight: 500;
+  background: none;
+  color: var(--light);
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+.secondary-btn:hover {
+  color: var(--brown);
+  background: var(--light);
+}
+
+.or {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.2rem;
+  align-items: center;
+}
+
+span,
+.or {
+  color: var(--light);
+  padding: 0.8rem;
+}
+.bar {
+  flex: auto;
+  border: none;
+  height: 1px;
+  background: var(--light);
+}
+.links {
+  color: var(--light);
+}
+
+#showcase {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: url("https://images.pexels.com/photos/1188079/pexels-photo-1188079.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    no-repeat center center / cover;
+}
