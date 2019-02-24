@@ -1,0 +1,42 @@
+.title {
+  margin: 40px 0;
+  text-align: center;
+  font-size: 40px;
+  color: var(--brown);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.underline {
+  width: 300px;
+  border: 3px solid var(--pink);
+  margin: 0 auto;
+}
+#Services {
+  min-height: 100vh;
+  background: url(../images/girls-hang.jpeg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px 0 80px 0;
+}
+
+.services-container {
+  max-width: 90vw;
+  margin: 0 auto;
+  color: var(--light);
+}
+
+.service-item {
+  overflow: hidden;
+  position: relative;
+  padding: 60px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+.service-item .fas {
+  font-size: 60px;
+  margin-bottom: 30px;
+  color: var(--light);
+}

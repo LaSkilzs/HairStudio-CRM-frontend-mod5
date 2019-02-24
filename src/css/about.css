@@ -1,0 +1,36 @@
+#About {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/team-2.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 60px;
+}
+.about-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.about-container h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 10px;
+}
+
+.about-container button {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: var(--light);
+  border: 2px solid var(--light);
+  padding: 10px 15px;
+  background: transparent;
+}
+
+.about-container button:hover {
+  color: var(--brown);
+  background: var(--light);
+}

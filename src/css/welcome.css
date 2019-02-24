@@ -1,0 +1,36 @@
+#Welcome {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/salon1.jpeg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text {
+  font-size: 50px;
+  text-transform: uppercase;
+  color: var(--light);
+  font-style: italic;
+}
+.welcome-button {
+  display: flex;
+  justify-content: space-between;
+}
+.wbtn {
+  font-size: 30px;
+  padding: 15px;
+  text-transform: uppercase;
+  margin: 0 10px;
+  background: transparent;
+  color: var(--light);
+  border: 2px solid var(--light);
+}
+.wbtn:hover {
+  color: var(--brown);
+  background: var(--light);
+}

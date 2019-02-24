@@ -1,0 +1,44 @@
+.test-title {
+  display: flex;
+  padding: 20px;
+  margin: 40px 0;
+  text-align: center;
+  font-size: 40px;
+  color: var(--brown);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.test-title .fas {
+  font-size: 40px;
+  color: var(--brown);
+  margin-right: 10px;
+}
+
+.test-title h2 {
+  font-size: 40px;
+  color: var(--brown);
+}
+
+#Testimonial {
+  background-color: var(--light);
+  padding: 40px 0;
+}
+
+.quote {
+  text-align: center;
+  color: var(--brown);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.img-quote {
+  width: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.quote .fa {
+  font-size: 35px;
+  margin-right: 5px;
+  color: var(--brown);
+}
