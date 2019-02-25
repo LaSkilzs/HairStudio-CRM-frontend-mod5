@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileList from "./ProfileList";
+import { Link } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   render() {
@@ -21,6 +22,14 @@ class ProfileContainer extends React.Component {
             <button className="profile-btn">book Appointment</button>
           </div>
           <div id="profile-right">
+            <div className="profile-change">
+              <Link to="/gallery">
+                <button className="butpro">Gallery</button>
+              </Link>
+              <Link to="/dashboard">
+                <button className="butpro">Dashboard</button>
+              </Link>
+            </div>
             <div className="profile-receipt">
               <h1>Next Appointment</h1>
             </div>

@@ -1,3 +1,12 @@
+.gallery-image {
+  margin: auto;
+  align-content: center;
+}
+.gallery-image img {
+  box-shadow: var(--light);
+  padding: 5px;
+}
+
 .main-gallery {
   display: flex;
   justify-content: space-evenly;
@@ -14,4 +23,8 @@
 
 .gallery-select {
   font-size: 15px;
+}
+
+.gallery-card {
+  margin: auto;
 }

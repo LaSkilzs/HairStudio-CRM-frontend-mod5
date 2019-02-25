@@ -1,6 +1,5 @@
 #Profile {
-  background-color: var(--light);
-  /* height: 100vh; */
+  /* background-color: var(--light); */
 }
 
 .profile-container {
@@ -56,11 +55,26 @@ h3 {
 #profile-right {
   grid-area: right;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
-  margin-top: 3rem;
+  /* margin-top: 0.5rem; */
   max-height: 25vh;
   max-width: 40vw;
+}
+
+.profile-change {
+  display: flex;
+  justify-content: space-around;
+}
+
+.butpro {
+  font-size: 20px;
+  color: var(--brown);
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 30px;
+  border: 1px solid var(--brown);
+  background: transparent;
 }
 
 .profile-appt-title {
@@ -71,7 +85,7 @@ h3 {
   list-style-type: none;
   border: 2px solid var(--brown);
   height: 30vh;
-  background: var(--pink);
+  background: var(--light);
 }
 
 .profile-receipt {
@@ -101,17 +115,6 @@ h3 {
   background-color: white;
 }
 
-.profile-appt-list {
-  margin: 0;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 400px;
-  background-color: orange;
-}
-
 .profile-appointments {
   text-align: center;
   padding: 10px;
@@ -121,25 +124,8 @@ h3 {
   font-style: italic;
 }
 .appointment {
-  background-color: var(--pink);
+  border: 2px solid black;
   height: 9rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  /* grid-template-areas: "date time hairstyle stylist appointment"; */
-}
-
-.date {
-  grid-area: date;
-}
-.time {
-  grid-area: time;
-}
-.hairstyle {
-  grid-area: time;
-}
-.stylist {
-  grid-area: time;
-}
-.appointment {
-  grid-area: time;
 }

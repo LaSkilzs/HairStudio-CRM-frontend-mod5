@@ -9,19 +9,23 @@ import About from "./pages/About";
 import Navbar from "./app/Navbar";
 import Login from "./app/Login";
 import Testimonial from "./pages/Testimonial";
-
+import { Route } from "react-router-dom";
 class App extends React.Component {
+  state = {
+    word: true
+  };
   render() {
     return (
       <div className="main-container">
-        <Navbar />
-        <Welcome />
+        <Navbar word={this.state.word} />
+        <Route path="/welcome" component={Welcome} />
+        {/* 
         <Gallery />
         <Services />
         <Testimonial />
         <About />
         <Contact />
-        <Footer />
+        <Footer /> */}
         <Login />
       </div>
     );

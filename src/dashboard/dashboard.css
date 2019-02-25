@@ -3,19 +3,19 @@
   justify-content: space-evenly;
 }
 
-.dashboard-btn {
+/* .dashboard-buttoned {
   display: flex;
   padding: 10px;
   border-radius: 5px;
   width: 30%;
-  font-size: 20px;
+  font-size: 10px;
   border: 1px solid var(--brown);
   background: transparent;
-  color: var(--brown);
+  color: var(--light);
   margin-left: 35%;
   text-align: center;
-}
-
+} */
+/* 
 .dashboard-butn {
   padding: 5px;
   width: 10%;
@@ -24,7 +24,7 @@
   border: 1px solid var(--light);
   background: transparent;
   border-radius: 5px;
-}
+} */
 
 .dashboard-header {
   display: flex;
