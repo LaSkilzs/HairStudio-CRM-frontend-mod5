@@ -1,10 +1,17 @@
 import React from "react";
 
-const ScheduleCard = () => {
-  return (
-    <div className="schedule-card">
-      <li>ScheduleCard is in the building</li>
-    </div>
-  );
-};
+class ScheduleCard extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="schedule-card">
+        <h3>schedule is still here</h3>
+      </div>
+    );
+  }
+}
 export default ScheduleCard;

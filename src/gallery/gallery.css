@@ -1,6 +1,7 @@
 .gallery-image {
   margin: auto;
   align-content: center;
+  margin-left: 250px;
 }
 .gallery-image img {
   box-shadow: var(--light);

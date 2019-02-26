@@ -5,7 +5,7 @@ const Gallery = () => {
   return (
     <section id="Gallery">
       <div className="title">
-        <h3>Gallery Here!!</h3>
+        <h3>Gallery </h3>
       </div>
       <div className="gallery-container">
         <article className="gallery-item">

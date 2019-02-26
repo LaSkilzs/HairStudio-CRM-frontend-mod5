@@ -1,14 +1,32 @@
 import React from "react";
-import AppointmentList from "./AppointmentList";
-import ScheduleList from "./ScheduleList";
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 class Appointment extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      events: [
+        {
+          start: new Date(),
+          end: new Date(moment().add(1, "days")),
+          title: "Just a Test"
+        }
+      ]
+    };
+  }
   render() {
+    const localizer = BigCalendar.momentLocalizer(moment);
     return (
       <div className="appointment-container">
-        <h2>Appointment Container</h2>
-        <AppointmentList />
-        <ScheduleList />
+        <BigCalendar
+          localizer={localizer}
+          defaultDate={new Date()}
+          defaultView="month"
+          events={this.state.events}
+          style={{ height: "100vh", marginLeft: "250px" }}
+        />
       </div>
     );
   }
