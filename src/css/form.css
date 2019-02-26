@@ -1,0 +1,52 @@
+#Form {
+  min-height: 60vh;
+  background-color: var(--light);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/salon1.jpeg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  text-align: center;
+  padding: 20px;
+  color: var(--light);
+  margin: 0 0 40px 0;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+#email {
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid var(--light);
+  font-size: 30px;
+  margin: 10px 20px;
+}
+#email::placeholder {
+  color: var(--light);
+  text-transform: capitalize;
+}
+
+#submit {
+  display: inline-block;
+  background: transparent;
+  border: 3px solid var(--light);
+  padding: 10px 30px;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: var(--light);
+  margin: 10px 20px;
+  transition: color 2s ease, background 2s ease, border 2s ease;
+}
+
+#submit:hover {
+  color: var(--brown);
+  background: var(--light);
+  border-color: var(--brown);
+}

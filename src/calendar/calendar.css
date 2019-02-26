@@ -154,6 +154,14 @@ input:active {
   border: 2px solid black;
 }
 
+.cal-card.dash {
+  background: url("https://www.cdc.gov/niosh/topics/ohsn/images/chart1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 300px;
+}
 .user-image {
   background: url("../images/hair-1.jpeg");
   background-color: blue;

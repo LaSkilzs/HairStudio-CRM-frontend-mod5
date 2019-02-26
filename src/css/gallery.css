@@ -1,5 +1,5 @@
 #Gallery {
-  padding: 60px 0;
+  padding: 10px 0;
   background-color: var(--light);
 }
 
@@ -15,6 +15,7 @@ img {
 .gallery-item {
   text-align: center;
   margin: 20px 0;
+  border: 2px solid var(--brown);
 }
 
 .gallery-heading {
