@@ -10,12 +10,20 @@ class Login extends React.Component {
       loggedIn: true
     };
   }
+
+  loggedIn = username => {
+    this.setState({ username });
+  };
+
+  loggedOut = () => {
+    this.setState({ username: "" });
+  };
+
   render() {
     return (
       <section id="Login">
-        <div className="login-container">
-          {this.state.loggedIn ? <Profile /> : <LoginCard />}
-        </div>
+        <LoginCard />
+        <Profile />
       </section>
     );
   }
