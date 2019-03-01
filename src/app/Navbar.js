@@ -66,6 +66,26 @@ const Navbar = props => {
               </Link>
             </li>
             <li>
+              <Link to="/contactus">
+                <i className="fas fa-images" aria-hidden="true" /> Contact Us 
+              </Link>
+            </li>
+            <li>
+              <Link to="/createprofile">
+                <i className="fas fa-images" aria-hidden="true" /> Create Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="/createappointment">
+                <i className="fas fa-images" aria-hidden="true" /> Create Appointment
+              </Link>
+            </li>
+            <li>
+              <Link to="/haircard">
+                <i className="fas fa-images" aria-hidden="true" /> Create HairCard
+              </Link>
+            </li>
+            <li>
               <Link to="/login">
                 <i className="fas fa-user" aria-hidden="true" /> Logout
               </Link>

@@ -1,0 +1,35 @@
+.form-container {
+  margin-left: 250px;
+  /* padding: 10px;
+  display: block;
+  width: 25rem;
+  text-align: center; */
+}
+form {
+  display: grid;
+  width: 25rem;
+  text-align: center;
+  /* padding: 1.5rem;
+  margin: 1rem; */
+}
+
+.select {
+  background: transparent;
+  border: none;
+  width: 80%;
+  font-size: 1.3rem;
+  color: var(--brown);
+  padding: 10px;
+  font-weight: 100;
+  outline: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.input-form {
+  border: 1px solid grey;
+}
+
+/* Create a custom radio button */
+
+
