@@ -24,12 +24,10 @@ class ContactUs extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <Header />
         <div className="form-container">
           <form onSubmit={e => this.onSubmit(e)} className="create">
             <h1 className="form-header">Contact Form</h1>
-              <hr/>
+            <hr />
             <input
               type="text"
               className="select"

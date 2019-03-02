@@ -43,7 +43,6 @@ class Appointment extends React.Component {
     );
     return (
       <div className="appointment-container">
-        <Navbar />
         <BigCalendar
           localizer={localizer}
           defaultDate={new Date()}

@@ -44,8 +44,6 @@ class CreateHairCard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
-        <Header />
         <div className="form-container">
           <form onSubmit={e => this.onSubmit(e)} className="create">
             <h1 className="form-header">Create Hair Card</h1>

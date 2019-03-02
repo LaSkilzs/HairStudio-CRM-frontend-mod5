@@ -3,10 +3,40 @@ import "../css/navbar.css";
 import { Link } from "react-router-dom";
 
 const Navbar = props => {
-  // const { username, loggedOut } = this.props;
-  if (props.username) {
+  const { username, loggedOut, word } = props;
+  if (username !== "") {
     return (
       <section id="Navbar">
+        <div className="calendar-container">
+          <header>
+            <div className="search-area">
+              <i className="fas fa-search" />
+              <input type="text" />
+            </div>
+            <div className="user-field">
+              <a href="##" className="add">
+                +add
+              </a>
+              <a href="##">
+                <i className="fas fa-bell" aria-hidden="true" />
+                <span className="span">3</span>
+              </a>
+              <a href="##">
+                <div className="user">
+                  <img
+                    src="https://randomuser.me/api/portraits/thumb/women/15.jpg"
+                    alt="user"
+                    className="user-img"
+                  />
+                </div>
+              </a>
+              <a href="##">
+                <i className="fas fa-caret-down" aria-hidden="true" />
+              </a>
+            </div>
+          </header>
+        </div>
+
         <div className="calendar-container">
           <section id="side-menu">
             <ul className="side-nav">
@@ -33,7 +63,7 @@ const Navbar = props => {
                 </Link>
               </li>
               <li>
-                <Link to="/gallery">
+                <Link to="/galleries">
                   <i className="fas fa-images" aria-hidden="true" /> Gallery
                 </Link>
               </li>
@@ -62,8 +92,10 @@ const Navbar = props => {
               </li>
               <li>
                 <Link to="/login">
-                  <i className="fas fa-user" aria-hidden="true" />
-                  <button onClick={props.loggedOut}>Logout</button>
+                  <i className="fas fa-user" aria-hidden="true" />{" "}
+                  <button className="nav-but" onClick={loggedOut}>
+                    Logout
+                  </button>
                 </Link>
               </li>
             </ul>
@@ -93,12 +125,16 @@ const Navbar = props => {
               <li className="navbar-links">Contact</li>
             </Link>
             <li className="navbar-links">
-              <i className="fas fa-user" />
+              <Link to="/login">
+                <i className="fas fa-user" />
+              </Link>
               <Link to="/login">
                 <button className="nav-but">Login</button>
               </Link>
               <Link to="/">
-                <button className="nav-but">Logout</button>
+                <button className="nav-but" onClick={loggedOut}>
+                  Logout
+                </button>
               </Link>
             </li>
           </ul>

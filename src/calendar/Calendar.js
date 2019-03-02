@@ -7,9 +7,7 @@ class Calendar extends React.Component {
   render() {
     return (
       <section id="profile">
-        <Navbar />
-        // <Header />
-        <CalendarContainer />
+        <CalendarContainer user={this.props.user} />
       </section>
     );
   }

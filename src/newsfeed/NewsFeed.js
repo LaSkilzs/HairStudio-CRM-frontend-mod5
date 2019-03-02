@@ -7,8 +7,8 @@ class NewsFeed extends React.Component {
   render() {
     return (
       <section id="NewsFeed">
-        <Navbar />
-        <Header />
+        {/* <Navbar />
+        <Header /> */}
         <h2>NewsFeed Here!</h2>
         <NewsFeedContainer />
       </section>

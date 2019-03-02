@@ -109,10 +109,29 @@ input:active {
   display: inline-block;
   border-radius: 50%;
 }
+
+/* Buttons */
+.cal-button {
+  display: flex;
+  justify-content: center;
+}
+.cal-but {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--brown);
+  font-size: 15px;
+  color: var(--pink);
+}
+
+.cal-but:hover {
+  color: var(--brown);
+  background: var(--pink);
+}
 /* CalenderList Section */
 
 #content-area {
-  margin-left: 250px;
+  margin-left: 280px;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -120,14 +139,14 @@ input:active {
 
 .head h1 {
   color: var(--brown);
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   font-weight: 400;
   margin-bottom: 10px;
 }
 
 .head p {
-  color: grey;
-  font-size: 0.8rem;
+  color: var(--pink);
+  font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
@@ -137,11 +156,44 @@ input:active {
 .cards {
   display: flex;
 }
+
+.card {
+  margin-top: 80px;
+}
 .cal-cards {
   background: #fff;
   border-radius: 5px;
   padding: 20px;
   overflow: auto;
+}
+.cal-appoint-head {
+  font-size: 20px;
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+}
+
+.cal-spacer {
+  padding: 2px;
+  border: 2px solid var(--brown);
+  background: var(--brown);
+}
+.cal-appoint-list {
+  padding: 10px;
+  margin: 20px;
+  list-style-type: none;
+}
+
+.cal-span {
+  color: var(--brown);
+  width: 100%;
+}
+.cal-strong {
+  margin-left: 5px;
+  font-style: italic;
+  color: var(--pink);
+  font-weight: 400;
+  text-align: end;
 }
 
 .cal-card {
@@ -153,6 +205,10 @@ input:active {
   border: 2px solid black;
 }
 
+.cal-card:hover {
+  background: var(--light);
+  border: 2px solid var(--pink);
+}
 .cal-card.dash {
   background: url("https://www.cdc.gov/niosh/topics/ohsn/images/chart1.png");
   background-repeat: no-repeat;
@@ -161,9 +217,9 @@ input:active {
   width: 300px;
   height: 300px;
 }
-.user-image {
-  background: url("../images/hair-1.jpeg");
-  background-color: blue;
+.user-image img {
+  /* background: url("../images/hair-1.jpeg"); */
+  /* background-color: blue; */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -202,7 +258,7 @@ input:active {
 }
 /* Calendar Card  */
 .calendar-card {
-  margin-left: 250px;
+  margin-left: 280px;
   padding: 15px;
 }
 

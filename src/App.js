@@ -9,10 +9,8 @@ import Form from "./pages/Form";
 import Testimonial from "./pages/Testimonial";
 import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
-import Login from "./app/Login";
-import Profile from "./profile/Profile";
+import LoginCard from "./app/LoginCard";
 import Register from "./forms/Register";
-import { Route, Switch } from "react-router-dom";
 import Appointment from "./appointment/Appointment";
 import NewsFeed from "./newsfeed/NewsFeed";
 import Calendar from "./calendar/Calendar";
@@ -22,7 +20,7 @@ import ContactUs from "./forms/ContactUs";
 import CreateAppointment from "./forms/CreateAppointment";
 import CreateHairCard from "./forms/CreateHairCard";
 import CreateProfile from "./forms/CreateProfile";
-import Header from "./app/Header";
+import { Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
   constructor() {
@@ -30,7 +28,9 @@ class App extends React.Component {
     this.state = {
       username: "",
       salon: [],
-      services: []
+      services: [],
+      galleries: [],
+      user: {}
     };
   }
 
@@ -39,22 +39,30 @@ class App extends React.Component {
   };
 
   loggedOut = () => {
-    this.setState({ username: "" });
+    this.setState({ username: "", user: {} });
   };
+
+  updateUser = user => this.setState({ user });
 
   async componentDidMount() {
     const responseSa = await fetch("http://localhost:3000/api/v1/salons");
     const responseSe = await fetch("http://localhost:3000/api/v1/services");
+    // const responseGa = await fetch("http://localhost:3000/api/v1/galleries");
     const salon = await responseSa.json();
     const services = await responseSe.json();
+    // const galleries = await responseGa.json();
     this.setState({ salon, services });
   }
 
   render() {
-    console.log(this.state.username);
+    console.log(this.state.user);
     return (
       <div className="main-container">
-        <Navbar username={this.state.username} loggedOut={this.loggedOut} />
+        <Navbar
+          username={this.state.username}
+          word={this.state.word}
+          loggedOut={this.loggedOut}
+        />
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route path="/gallery" component={Gallery} />
@@ -74,28 +82,33 @@ class App extends React.Component {
           <Route
             path="/login"
             component={routerProps => (
-              <Login loggedIn={this.loggedIn} {...routerProps} />
+              <LoginCard
+                loggedIn={this.loggedIn}
+                {...routerProps}
+                updateUser={this.updateUser}
+              />
             )}
           />
           <Route path="/register" component={Register} />
-          {/* <Header /> */}
+          <Route path="/contact" component={Contact} />
           <Route
             path="/profile"
             component={routerProps => (
-              <Profile {...routerProps} username={this.state.username} />
+              <Calendar
+                user={this.state.user}
+                username={this.state.username}
+                {...routerProps}
+              />
             )}
           />
-          <Route path="/calendar" component={Calendar} />
-          <Route path="/login" component={Login} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/newsfeed" component={NewsFeed} />
           <Route path="/galleries" component={GalleryContainer} />
           <Route path="/appointment" component={Appointment} />
-          <Route path="/contactus" component={ContactUs} />
           <Route path="/haircard" component={CreateHairCard} />
           <Route path="/createprofile" component={CreateProfile} />
           <Route path="/createappointment" component={CreateAppointment} />
-          <Route path="/contact" component={Contact} />
+          <Route path="/contactus" component={ContactUs} />
           <Route component={() => <h1>Page Not Found</h1>} />
         </Switch>
       </div>

@@ -31,12 +31,10 @@ class CreateProfile extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
-        <Header />
         <div className="form-container">
           <form onSubmit={e => this.onSubmit(e)} className="create">
             <h1 className="form-header">Create Profile</h1>
-              <hr/>
+            <hr />
             <input
               type="text"
               className="select"

@@ -24,11 +24,10 @@ class CreateAppointment extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
         <div className="form-container">
           <form onSubmit={e => this.onSubmit(e)} className="create">
             <h1 className="form-header">Create Appointment</h1>
-              <hr/>
+            <hr />
             <input
               type="date"
               className="select"

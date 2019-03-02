@@ -7,8 +7,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <section id="profile">
-        <Navbar />
-        <Header />
         <DashboardContainer />
       </section>
     );

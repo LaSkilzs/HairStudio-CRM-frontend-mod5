@@ -10,8 +10,9 @@ import ContactUs from "../forms/ContactUs";
 import CreateAppointment from "../forms/CreateAppointment";
 import CreateHairCard from "../forms/CreateHairCard";
 import CreateProfile from "../forms/CreateProfile";
+import LoginCard from "../app/LoginCard";
+import Navbar from "../app/Navbar";
 import Header from "../app/Header";
-import Login from "../app/Login";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -28,22 +29,23 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <section id="Profile">
-        <Header />
-        <Switch>
-          <Route path="/profile" component={Calendar} />
-          <Route path="/login" component={Login} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/newsfeed" component={NewsFeed} />
-          <Route path="/gallery" component={GalleryContainer} />
-          <Route path="/appointment" component={Appointment} />
-          <Route path="/haircard" component={CreateHairCard} />
-          <Route path="/createprofile" component={CreateProfile} />
-          <Route path="/createappointment" component={CreateAppointment} />
-          <Route path="/contactus" component={ContactUs} />
-        </Switch>
-        <div />
-      </section>
+      <React.Fragment>
+        <section id="Profile">
+          <Switch>
+            <Route path="/profile" component={Calendar} />
+            <Route path="/login" component={LoginCard} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/newsfeed" component={NewsFeed} />
+            <Route path="/gallery" component={GalleryContainer} />
+            <Route path="/appointment" component={Appointment} />
+            <Route path="/haircard" component={CreateHairCard} />
+            <Route path="/createprofile" component={CreateProfile} />
+            <Route path="/createappointment" component={CreateAppointment} />
+            <Route path="/contactus" component={ContactUs} />
+          </Switch>
+          <div />
+        </section>
+      </React.Fragment>
     );
   }
 }
