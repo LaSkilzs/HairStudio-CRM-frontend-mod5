@@ -4,7 +4,6 @@
 
 #side-menu {
   background-color: var(--pink);
-  /* width: 280px; */
   max-width: 280px;
   position: absolute;
   top: 0;

@@ -1,16 +1,21 @@
 .form-container {
-  margin-left: 250px;
-  /* padding: 10px;
-  display: block;
-  width: 25rem;
-  text-align: center; */
+  margin-top: 20px;
+  margin-left: 350px;
 }
-form {
+hr {
+  width: 100%;
+}
+
+.form-header {
+  text-align: center;
+}
+.create {
   display: grid;
   width: 25rem;
   text-align: center;
-  /* padding: 1.5rem;
-  margin: 1rem; */
+  margin: auto;
+  padding: 10px;
+  border: 2px solid purple;
 }
 
 .select {
@@ -31,5 +36,3 @@ form {
 }
 
 /* Create a custom radio button */
-
-

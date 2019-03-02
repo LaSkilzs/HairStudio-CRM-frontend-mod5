@@ -1,5 +1,5 @@
 import React from "react";
-import "./profile.css";
+// import "./profile.css";
 import { Switch, Route } from "react-router-dom";
 import Appointment from "../appointment/Appointment";
 import NewsFeed from "../newsfeed/NewsFeed";
@@ -10,25 +10,29 @@ import ContactUs from "../forms/ContactUs";
 import CreateAppointment from "../forms/CreateAppointment";
 import CreateHairCard from "../forms/CreateHairCard";
 import CreateProfile from "../forms/CreateProfile";
-import LoginCard from "../app/LoginCard";
+import Header from "../app/Header";
+import Login from "../app/Login";
 
 class Profile extends React.Component {
-  async componentDidMount() {
-    const response_us = await fetch("http://localhost:3000/api/v1/users");
-    const response_ap = await fetch(
-      "http://localhost:3000/api/v1/appointments"
-    );
-    const user = await response_us.json();
-    const appointments = await response_ap.json();
-    console.log(user);
-    console.log(appointments);
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
+
+  componentDidMount() {
+    if (!this.props.username) {
+      console.log(this.props);
+      this.props.history.push("/");
+    }
+  }
+
   render() {
     return (
       <section id="Profile">
+        <Header />
         <Switch>
-          <Route path="/calendar" component={Calendar} />
-          <Route path="/login" component={LoginCard} />
+          <Route path="/profile" component={Calendar} />
+          <Route path="/login" component={Login} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/newsfeed" component={NewsFeed} />
           <Route path="/gallery" component={GalleryContainer} />

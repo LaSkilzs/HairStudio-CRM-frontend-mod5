@@ -1,10 +1,9 @@
-.calendar-container {
+/* .calendar-container {
   background-color: #fff3f2;
 }
 
 #side-menu {
   background-color: var(--pink);
-  /* width: 280px; */
   max-width: 280px;
   position: absolute;
   top: 0;
@@ -112,7 +111,7 @@ input:active {
 }
 /* CalenderList Section */
 
-#content-area {
+/* #content-area {
   margin-left: 250px;
   padding: 15px;
   display: flex;
@@ -193,7 +192,7 @@ input:active {
   display: inline-block;
   color: var(--brown);
 }
-/* Calendar Card  */
+
 .calendar-card {
   margin-left: 250px;
   padding: 15px;
@@ -225,4 +224,4 @@ td {
   padding: 20px 10px;
   color: var(--brown);
   font-size: 0.8rem;
-}
+} */ 

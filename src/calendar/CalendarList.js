@@ -58,7 +58,6 @@ const CalendarList = () => {
           </div>
         </div>
       </section>
-      <ul>CalendarList</ul>
       <CalendarCard />
     </div>
   );
