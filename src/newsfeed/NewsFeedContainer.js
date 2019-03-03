@@ -1,12 +1,14 @@
 import React from "react";
+import "./newsfeed.css";
 import NewsFeedList from "./NewsFeedList";
+import NewsFeedCard from "./NewsFeedCard";
 
 class NewsFeedContainer extends React.Component {
   render() {
     return (
       <div className="newsfeed-container">
-        <h2>NewsFeed Container</h2>
         <NewsFeedList />
+        <NewsFeedCard />
       </div>
     );
   }
