@@ -6,7 +6,6 @@ class NewsFeed extends React.Component {
     return (
       <section id="NewsFeed">
         <h2 className="shop-news">Shop Talk NewsFeed</h2>
-
         <NewsFeedContainer />
       </section>
     );

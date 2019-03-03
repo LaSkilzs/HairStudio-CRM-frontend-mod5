@@ -121,7 +121,10 @@ class App extends React.Component {
           <Route path="/contact" component={Contact} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/newsfeed" component={NewsFeed} />
-          <Route path="/appointment" component={Appointment} />
+          <Route
+            path="/appointment"
+            component={routerProps => <Appointment {...routerProps} />}
+          />
           <Route path="/haircard" component={CreateHairCard} />
           <Route
             path="/createprofile"

@@ -1,22 +1,27 @@
 import React from "react";
+import API from "../API";
 
 class CreateAppointment extends React.Component {
   constructor() {
     super();
     this.state = {
       date: "",
-      time: "",
+      start_time: "",
       duration: "",
       hairstyle: "",
-      status: "",
-      stylist_id: 0
+      status: "pending",
+      service_total: 0.0,
+      stylist_id: 1,
+      user_id: 40
     };
   }
 
   onSubmit = e => {
     e.preventDefault();
     const appointment = this.state;
-    console.log(appointment);
+    if (API.scheduleAppointment(appointment)) {
+      alert("appointment created");
+    }
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -48,11 +53,70 @@ class CreateAppointment extends React.Component {
               name="hairstyle"
               onChange={e => this.handleChange(e)}
             />
+            <select
+              name="stylist_id"
+              id="stylist"
+              className="select"
+              onChange={e => this.handleChange(e)}
+            >
+              <option value="1">Name1</option>
+              <option value="2">Name2</option>
+            </select>
+            <button
+              type="submit"
+              className="primary-btn"
+              style={{
+                color: "var(--pink)",
+                border: "2px solid purple",
+                fontSize: "20px"
+              }}
+            >
+              submit
+            </button>
+          </form>
+          <form onSubmit={e => this.onSubmit(e)} className="create">
+            <h1 className="form-header">Confirm Appointment</h1>
+            <hr />
+            <input
+              type="date"
+              className="select"
+              placeholder="date"
+              name="date"
+              onChange={e => this.handleChange(e)}
+            />
+            <input
+              type="time"
+              className="select"
+              placeholder="time"
+              name="time"
+              onChange={e => this.handleChange(e)}
+            />
+            <input
+              type="text"
+              className="select"
+              placeholder="hairstyle"
+              name="hairstyle"
+              onChange={e => this.handleChange(e)}
+            />
             <input
               type="text"
               className="select"
               placeholder="duration"
               name="duration"
+              onChange={e => this.handleChange(e)}
+            />
+            <input
+              type="text"
+              className="select"
+              placeholder="cost"
+              name="service_total"
+              onChange={e => this.handleChange(e)}
+            />
+            <input
+              type="text"
+              className="select"
+              placeholder="user_id"
+              name="user_id"
               onChange={e => this.handleChange(e)}
             />
             <select
@@ -67,11 +131,20 @@ class CreateAppointment extends React.Component {
               <option value="completed">completed</option>
             </select>
             <select
-              name="stylist_id"
-              id="stylist"
+              name="service_type"
               className="select"
               onChange={e => this.handleChange(e)}
             >
+              <option value="1">Choose Service Type</option>
+              <option value="1">Name1</option>
+            </select>
+
+            <select
+              name="stylist_id"
+              className="select"
+              onChange={e => this.handleChange(e)}
+            >
+              <option value="1">Choose Stylist</option>
               <option value="1">Name1</option>
               <option value="2">Name2</option>
             </select>

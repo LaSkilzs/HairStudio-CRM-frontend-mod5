@@ -55,17 +55,17 @@ class API {
       });
   }
 
-  static scheduleAppointment(appointment) {
-    fetch("http://localhost:3000/api/v1/appointments", {
+  static async scheduleAppointment(appointment) {
+    const response = await fetch("http://localhost:3000/api/v1/appointments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(appointment)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
   }
+
   // updates / edits
   static updateAppointment(appointment) {
     fetch(`http://localhost:3000/api/v1/appointments/${appointment.id}`, {

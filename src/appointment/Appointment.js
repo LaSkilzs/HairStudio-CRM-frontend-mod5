@@ -8,7 +8,9 @@ class Appointment extends React.Component {
     super();
     this.state = {
       events: [],
-      appointments: []
+      appointments: [],
+      date: new Date(),
+      event: {}
     };
   }
 
@@ -35,20 +37,25 @@ class Appointment extends React.Component {
     this.setState({ events });
   };
 
+  handleSelect = e => {
+    this.props.history.push("/createappointment");
+  };
+
   render() {
     const localizer = BigCalendar.momentLocalizer(moment);
-    let allViews = Object.keys(BigCalendar.Views).map(
-      k => BigCalendar.Views[k]
-    );
+    // let allViews = Object.keys(BigCalendar.Views).map(
+    //   k => BigCalendar.Views[k]
+    // );
     return (
       <div className="appointment-container">
         <BigCalendar
+          selectable
           localizer={localizer}
-          defaultDate={new Date()}
-          defaultView="month"
-          views={allViews}
-          step={60}
-          timeslots={16}
+          defaultView={BigCalendar.Views.MONTH}
+          scrollToTime={new Date(1970, 1, 1, 6)}
+          defaultDate={new Date(2018, 1, 1)}
+          onSelectEvent={e => alert("hi")}
+          onSelectSlot={this.handleSelect}
           events={this.state.events}
           style={{ height: "90vh", marginLeft: "250px", marginRight: "100px" }}
         />
@@ -58,3 +65,7 @@ class Appointment extends React.Component {
 }
 
 export default Appointment;
+
+// views={allViews}
+// step={60}
+// timeslots={16}
