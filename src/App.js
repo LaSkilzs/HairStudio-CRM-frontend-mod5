@@ -47,11 +47,11 @@ class App extends React.Component {
   async componentDidMount() {
     const responseSa = await fetch("http://localhost:3000/api/v1/salons");
     const responseSe = await fetch("http://localhost:3000/api/v1/services");
-    // const responseGa = await fetch("http://localhost:3000/api/v1/galleries");
+    const responseGa = await fetch("http://localhost:3000/api/v1/galleries");
     const salon = await responseSa.json();
     const services = await responseSe.json();
-    // const galleries = await responseGa.json();
-    this.setState({ salon, services });
+    const galleries = await responseGa.json();
+    this.setState({ salon, services, galleries });
   }
 
   render() {
@@ -103,7 +103,15 @@ class App extends React.Component {
           />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/newsfeed" component={NewsFeed} />
-          <Route path="/galleries" component={GalleryContainer} />
+          <Route
+            path="/galleries"
+            component={routerProps => (
+              <GalleryContainer
+                galleries={this.state.galleries}
+                username={this.username}
+              />
+            )}
+          />
           <Route path="/appointment" component={Appointment} />
           <Route path="/haircard" component={CreateHairCard} />
           <Route path="/createprofile" component={CreateProfile} />

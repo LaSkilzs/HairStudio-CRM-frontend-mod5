@@ -92,7 +92,7 @@ const Navbar = props => {
               </li>
               <li>
                 <Link to="/login">
-                  <i className="fas fa-user" aria-hidden="true" />{" "}
+                  <i className="fas fa-user" aria-hidden="true" />
                   <button className="nav-but" onClick={loggedOut}>
                     Logout
                   </button>
@@ -121,7 +121,7 @@ const Navbar = props => {
             <Link to="/about">
               <li className="navbar-links">About</li>
             </Link>
-            <Link to="/contact">
+            <Link to="/contactus">
               <li className="navbar-links">Contact</li>
             </Link>
             <li className="navbar-links">

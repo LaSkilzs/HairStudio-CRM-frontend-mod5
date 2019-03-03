@@ -1,10 +1,10 @@
 import React from "react";
 import GalleryCard from "./GalleryCard";
 
-const GalleryList = () => {
+const GalleryList = props => {
   return (
     <div>
-      <GalleryCard />
+      <GalleryCard galleries={props.galleries} />
     </div>
   );
 };
