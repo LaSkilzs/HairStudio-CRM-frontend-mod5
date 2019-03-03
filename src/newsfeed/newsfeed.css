@@ -1,0 +1,111 @@
+.newsfeed-container {
+  margin-left: 280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 70px;
+  width: 80vw;
+  background: #fff;
+  padding: 14px 20px;
+  border-radius: 4px;
+}
+
+.newsfeed-card {
+  border: 2px solid black;
+  width: 60%;
+}
+
+.shop-news {
+  font-family: "Wellfleet", "Trebuchet MS", Tahoma, Arial, sans-serif;
+  font-size: 2.85em;
+  line-height: 1.6em;
+  font-weight: normal;
+  color: #756f8b;
+  text-shadow: 0px 1px 1px #fff;
+  margin-bottom: 21px;
+  margin-left: 280px;
+}
+
+#comments {
+  display: block;
+  list-style-type: none;
+}
+
+.comment {
+  display: block;
+  position: relative;
+  padding-left: 65px;
+  border-top: 1px solid #ddd;
+}
+.avatar {
+  position: relative;
+  top: 8px;
+  right: 100px;
+}
+
+.comments-head {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.comments-span {
+  padding: 0;
+  margin-left: 80px;
+  font-size: 15px;
+  color: #777;
+}
+
+.userlink {
+  font-weight: bold;
+  color: #896dc6;
+  text-decoration: none;
+}
+
+.comment-para {
+  font-family: Arial, Geneva, Verdana, sans-serif;
+  font-size: 1.3em;
+  line-height: 1.42em;
+  margin-bottom: 12px;
+  font-weight: normal;
+}
+
+.comment-content {
+  padding: 0px 3px;
+  padding-bottom: 12px;
+  padding-top: 8px;
+}
+#replies {
+  list-style-type: none;
+}
+.chatroom {
+  margin: 0 auto;
+  text-align: center;
+}
+.chatroom-header {
+  padding: 20px;
+}
+.chatroom-spacer {
+  width: 100vw;
+}
+.chatroom-ul {
+  list-style-type: none;
+}
+
+.chatroom-li {
+  padding: 1rem;
+  border-top: 2px solid grey;
+}
+
+.news-but {
+  padding: 10px;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 10px;
+  border: 2px solid var(--brown);
+  color: var(--pink);
+  font-size: 20px;
+}
+.news-but:hover {
+  background-color: var(--light);
+  border: 2px solid var(--pink);
+  color: var(--brown);
+}

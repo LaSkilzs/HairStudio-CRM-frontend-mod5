@@ -3,7 +3,8 @@ import "../css/navbar.css";
 import { Link } from "react-router-dom";
 
 const Navbar = props => {
-  if (props.word === "profile") {
+  const { username, loggedOut } = props;
+  if (username !== "") {
     return (
       <section id="Navbar">
         <div className="calendar-container">
@@ -35,11 +36,12 @@ const Navbar = props => {
             </div>
           </header>
         </div>
+
         <div className="calendar-container">
           <section id="side-menu">
             <ul className="side-nav">
               <li className="active">
-                <Link to="/calendar">
+                <Link to="/profile">
                   <i className="fas fa-home" aria-hidden="true" /> Home
                 </Link>
               </li>
@@ -49,11 +51,11 @@ const Navbar = props => {
                   Dashboard
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link to="/newsfeed">
                   <i className="fas fa-newspaper" aria-hidden="true" /> NewsFeed
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link to="/appointment">
                   <i className="fas fa-calendar-check" aria-hidden="true" />
@@ -61,13 +63,39 @@ const Navbar = props => {
                 </Link>
               </li>
               <li>
-                <Link to="/gallery">
+                <Link to="/galleries">
                   <i className="fas fa-images" aria-hidden="true" /> Gallery
                 </Link>
               </li>
               <li>
+                <Link to="/contactus">
+                  <i className="fas fa-images" aria-hidden="true" /> Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/createprofile">
+                  <i className="fas fa-images" aria-hidden="true" /> Create
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="/createappointment">
+                  <i className="fas fa-images" aria-hidden="true" /> Create
+                  Appointment
+                </Link>
+              </li>
+              <li>
+                <Link to="/haircard">
+                  <i className="fas fa-images" aria-hidden="true" /> Create
+                  HairCard
+                </Link>
+              </li>
+              <li>
                 <Link to="/login">
-                  <i className="fas fa-user" aria-hidden="true" /> Logout
+                  <i className="fas fa-user" aria-hidden="true" />
+                  <button className="nav-but" onClick={loggedOut}>
+                    Logout
+                  </button>
                 </Link>
               </li>
             </ul>
@@ -75,32 +103,44 @@ const Navbar = props => {
         </div>
       </section>
     );
-  } else if (props.word === "home") {
+  } else {
     return (
       <section id="Navbar">
         <div className="Navbar-container">
           <ul className="navbar-list">
             <li className="navbar-links logo">Shear Elegance</li>
-            <Link to="/welcome">
+            <Link to="/">
               <li className="navbar-links">Home</li>
             </Link>
             <Link to="/gallery">
               <li className="navbar-links">Gallery</li>
             </Link>
-            <li className="navbar-links">Services</li>
-            <li className="navbar-links">About</li>
-            <li className="navbar-links">Contact</li>
+            <Link to="/services">
+              <li className="navbar-links">Services</li>
+            </Link>
+            <Link to="/about">
+              <li className="navbar-links">About</li>
+            </Link>
+            <Link to="/contactus">
+              <li className="navbar-links">Contact</li>
+            </Link>
             <li className="navbar-links">
               <Link to="/login">
                 <i className="fas fa-user" />
+              </Link>
+              <Link to="/login">
+                <button className="nav-but">Login</button>
+              </Link>
+              <Link to="/">
+                <button className="nav-but" onClick={loggedOut}>
+                  Logout
+                </button>
               </Link>
             </li>
           </ul>
         </div>
       </section>
     );
-  } else {
-    return null;
   }
 };
 

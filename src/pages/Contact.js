@@ -1,32 +1,36 @@
 import React from "react";
 import "../css/contact.css";
 
-const Contact = () => {
+const Contact = ({ salon }) => {
+  console.log(salon);
+
   return (
     <section id="Contact">
       <div className="title">
         <h3>Directions</h3>
       </div>
       <div className="contact-center">
-        <article className="contact-info">
-          <div className="contact-detail">
-            <div className="contact-icon">
-              <i className="fas fa-home" />
+        {salon.map((salon, index) => (
+          <article className="contact-info" key={index}>
+            <div className="contact-detail">
+              <div className="contact-icon">
+                <i className="fas fa-home" />
+              </div>
+              <h3>Find us here</h3>
+              <p>Address: {salon.street_1} </p>
+              <p>City: {salon.city}</p>
+              <p>State: {salon.state}</p>
             </div>
-            <h3>Find us here</h3>
-            <p>Address:</p>
-            <p>State:</p>
-            <p>Zip:</p>
-          </div>
-          <div className="contact-detail">
-            <div className="contact-icon">
-              <i className="fas fa-phone" />
+            <div className="contact-detail">
+              <div className="contact-icon">
+                <i className="fas fa-phone" />
+              </div>
+              <p>Name: {salon.name}</p>
+              <p>Phone: {salon.phone}</p>
+              <p>Hours:</p>
             </div>
-            <p>Name:</p>
-            <p>Phone:</p>
-            <p>Hours:</p>
-          </div>
-        </article>
+          </article>
+        ))}
 
         <article className="contact-iframe">
           <iframe

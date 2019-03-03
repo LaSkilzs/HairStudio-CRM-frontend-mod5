@@ -1,6 +1,7 @@
 import React from "react";
 
-const CalendarCard = () => {
+const CalendarCard = props => {
+  console.log(props);
   return (
     <div className="calendar-card">
       <table>
@@ -15,27 +16,17 @@ const CalendarCard = () => {
         </thead>
 
         <tbody>
-          <tr>
-            <td> February 14, 2019 </td>
-            <td> 10:30am </td>
-            <td> Wash and Wrap </td>
-            <td> Lois </td>
-            <td> completed</td>
-          </tr>
-          <tr>
-            <td> February 14, 2019 </td>
-            <td> 10:30am </td>
-            <td> Wash and Wrap </td>
-            <td> Lois </td>
-            <td> completed</td>
-          </tr>
-          <tr>
-            <td> February 14, 2019 </td>
-            <td> 10:30am </td>
-            <td> Wash and Wrap </td>
-            <td> Lois </td>
-            <td> completed</td>
-          </tr>
+          {props.appointments.map((appointment, index) => {
+            return (
+              <tr key={index}>
+                <td> {appointment.date}</td>
+                <td> {appointment.start_time} </td>
+                <td> {appointment.title} </td>
+                <td> {appointment.stylist_id} </td>
+                <td> {appointment.status}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
