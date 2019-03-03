@@ -31,16 +31,27 @@ class API {
       });
   }
 
-  static sendMessage(message) {
-    fetch("http://localhost:3000/api/v1/messages", {
+  static sendConversation(title) {
+    fetch("http://localhost:3000/api/v1/conversations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(message)
+      body: JSON.stringify(title)
     })
       .then(response => response.json())
       .then(data => {
         console.log(data);
       });
+  }
+
+  static async sendComment(comment) {
+    const response = await fetch("http://localhost:3000/api/v1/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(comment)
+    });
+
+    const data = response.json();
+    console.log(data);
   }
 
   static createHairCard(haircard) {
