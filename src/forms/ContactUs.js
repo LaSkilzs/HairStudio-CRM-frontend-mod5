@@ -1,7 +1,6 @@
 import React from "react";
 import "./forms.css";
-import Navbar from "../app/Navbar";
-import Header from "../app/Header";
+import API from "../API";
 
 class ContactUs extends React.Component {
   constructor() {
@@ -10,14 +9,17 @@ class ContactUs extends React.Component {
       name: "",
       email: "",
       phone: "",
-      message: ""
+      message: "",
+      salon_id: 1
     };
   }
 
   onSubmit = e => {
     e.preventDefault();
     const message = this.state;
-    console.log(message);
+    if (API.sendMessage(message)) {
+      alert("message recieved");
+    }
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -31,7 +33,7 @@ class ContactUs extends React.Component {
             <input
               type="text"
               className="select"
-              placecholder="name"
+              placeholder="name"
               name="name"
               onChange={e => this.handleChange(e)}
             />

@@ -1,11 +1,9 @@
 import React from "react";
 import "./forms.css";
-import Navbar from "../app/Navbar";
-import Header from "../app/Header";
 
 class CreateProfile extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       first_name: "",
       last_name: "",
@@ -19,6 +17,8 @@ class CreateProfile extends React.Component {
       user_id: ""
     };
   }
+
+
 
   onSubmit = e => {
     e.preventDefault();

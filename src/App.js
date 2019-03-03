@@ -8,7 +8,7 @@ import Services from "./pages/Services";
 import Form from "./pages/Form";
 import Testimonial from "./pages/Testimonial";
 import Contact from "./pages/Contact";
-import Footer from "./pages/Footer";
+// import Footer from "./pages/Footer";
 import LoginCard from "./app/LoginCard";
 import Register from "./forms/Register";
 import Appointment from "./appointment/Appointment";
@@ -89,8 +89,16 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/register" component={Register} />
-          <Route path="/contact" component={Contact} />
+          <Route
+            path="/register"
+            component={routerProps => (
+              <Register
+                {...routerProps}
+                loggedIn={this.loggedIn}
+                updateUser={this.updateUser}
+              />
+            )}
+          />
           <Route
             path="/profile"
             component={routerProps => (
@@ -101,8 +109,6 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/newsfeed" component={NewsFeed} />
           <Route
             path="/galleries"
             component={routerProps => (
@@ -112,9 +118,15 @@ class App extends React.Component {
               />
             )}
           />
+          <Route path="/contact" component={Contact} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/newsfeed" component={NewsFeed} />
           <Route path="/appointment" component={Appointment} />
           <Route path="/haircard" component={CreateHairCard} />
-          <Route path="/createprofile" component={CreateProfile} />
+          <Route
+            path="/createprofile"
+            component={() => <CreateProfile user={this.state.user} />}
+          />
           <Route path="/createappointment" component={CreateAppointment} />
           <Route path="/contactus" component={ContactUs} />
           <Route component={() => <h1>Page Not Found</h1>} />

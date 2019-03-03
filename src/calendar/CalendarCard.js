@@ -16,9 +16,9 @@ const CalendarCard = props => {
         </thead>
 
         <tbody>
-          {props.appointments.map(appointment => {
+          {props.appointments.map((appointment, index) => {
             return (
-              <tr key={appointment.id}>
+              <tr key={index}>
                 <td> {appointment.date}</td>
                 <td> {appointment.start_time} </td>
                 <td> {appointment.title} </td>

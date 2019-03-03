@@ -2,7 +2,6 @@ import React from "react";
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import Navbar from "../app/Navbar";
 
 class Appointment extends React.Component {
   constructor() {

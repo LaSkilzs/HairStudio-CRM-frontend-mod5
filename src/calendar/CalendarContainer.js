@@ -21,11 +21,26 @@ class CalendarContainer extends React.Component {
           id: user.id,
           role: user.role,
           image: user.image,
-          personality: user.hair_personalities[0].name
+          // personality: user.hair_personalities[0].name
+          personality: "none"
         },
         haircard: user.hair_cards[0],
         profile: user.profiles[0],
         appointments: user.appointments
+      });
+    } else {
+      const { user } = this.props;
+      return this.setState({
+        user: {
+          username: user.username,
+          id: user.id,
+          role: user.role,
+          image: user.image,
+          personality: "Complete Profile Card"
+        },
+        haircard: [{}],
+        profile: [{}],
+        appointments: [{}]
       });
     }
   }

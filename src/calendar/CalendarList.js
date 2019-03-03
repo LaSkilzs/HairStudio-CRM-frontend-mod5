@@ -3,14 +3,14 @@ import CalendarCard from "./CalendarCard";
 import { Link } from "react-router-dom";
 
 const CalendarList = props => {
-  const { user, haircard, appointments, profile } = props.user;
+  const { user, appointments, profile } = props.user;
 
   return (
     <div>
       <section id="content-area">
         <div className="head">
           <h1 className="headprof">Profile</h1>
-          <p className="headpara">Welcome, {user.username}</p>
+          <p className="headpara">Welcome, {profile.full_name}</p>
         </div>
 
         <div className="cards">
@@ -19,7 +19,7 @@ const CalendarList = props => {
               <img
                 src={user.image}
                 // alt="https://images.pexels.com/photos/1125328/pexels-photo-1125328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt="photo"
+                alt="pic"
                 style={{ width: "130px", borderRadius: "50%" }}
               />
             </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../app/Navbar";
 
 class CreateAppointment extends React.Component {
   constructor() {

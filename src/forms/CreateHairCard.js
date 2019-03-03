@@ -1,7 +1,5 @@
 import React from "react";
 import "./forms.css";
-import Navbar from "../app/Navbar";
-import Header from "../app/Header";
 
 class CreateHairCard extends React.Component {
   constructor() {

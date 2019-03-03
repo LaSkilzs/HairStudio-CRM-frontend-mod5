@@ -3,7 +3,7 @@ import "../css/navbar.css";
 import { Link } from "react-router-dom";
 
 const Navbar = props => {
-  const { username, loggedOut, word } = props;
+  const { username, loggedOut } = props;
   if (username !== "") {
     return (
       <section id="Navbar">

@@ -1,17 +1,4 @@
 class API {
-  // static login(user) {
-  //   fetch("http://localhost:3000/api/v1/login", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(user)
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       debugger;
-  //       console.log(data);
-  //     });
-  // }
-
   static async login(user) {
     const response = await fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
@@ -22,16 +9,14 @@ class API {
     return data;
   }
 
-  static register(user) {
-    fetch("http://localhost:3000/api/v1/users", {
+  static async register(user) {
+    const response = await fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
+    });
+    const data = await response.json();
+    return data;
   }
 
   static createProfile(profile) {
@@ -47,7 +32,7 @@ class API {
   }
 
   static sendMessage(message) {
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch("http://localhost:3000/api/v1/messages", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(message)
