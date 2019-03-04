@@ -19,6 +19,17 @@ class API {
     return data;
   }
 
+  static async authenticate(user) {
+    const response = await fetch("https://localhost:3000/api/v1/auth", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("username")
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
   static createProfile(profile) {
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",

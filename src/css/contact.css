@@ -1,13 +1,13 @@
 #Contact {
-  padding: 20px 0;
-  min-height: 80vh;
+  /* padding: 10px 0; */
+  min-height: 90vh;
   background-color: var(--light);
   box-sizing: border-box;
 }
 
 .contact-center {
   display: grid;
-  grid-template-rows: 100px auto auto;
+  /* grid-template-rows: 100px auto auto; */
   grid-template-columns: 1fr 1fr;
   grid-area: "title" "map info";
 }
@@ -19,6 +19,59 @@
 }
 
 .contact-detail {
+  display: grid;
+  grid-column-gap: 20px;
   max-width: 100%;
-  padding: 50px;
+  padding: 10px;
+  text-align: center;
+}
+
+.contact-form,
+.contact-info,
+iframe {
+  padding: 20px 40px;
+}
+
+.contact-form {
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 3px;
+  background-color: var(--white);
+  padding: 0;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 2px solid var(--brown);
+  display: block;
+}
+
+.contact-list {
+  list-style-type: none;
+  padding: 10px;
+  font-size: 25px;
+  color: var(--brown);
+  font-style: italic;
+}
+
+#email-contact {
+  background: transparent;
+  border: none;
+  width: 80%;
+  font-size: 1.3rem;
+  color: var(--brown);
+  padding: 10px;
+  font-weight: 100;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+}
+.contact-but {
+  display: block;
+  padding: 0.8rem;
+  margin: 15px;
+  margin-left: 7rem;
+  border: 2px solid var(--pink);
+  background-color: var(--light);
+  color: var(--brown);
+  font-size: 18px;
+  border-radius: 5px;
 }
