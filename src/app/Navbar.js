@@ -3,8 +3,48 @@ import "../css/navbar.css";
 import { Link } from "react-router-dom";
 
 const Navbar = props => {
-  const { username, loggedOut } = props;
-  if (username !== "") {
+  const username = localStorage.getItem("username");
+  console.log(username);
+  const { loggedOut } = props;
+  if (username === null) {
+    return (
+      <section id="Navbar">
+        <div className="Navbar-container">
+          <ul className="navbar-list">
+            <li className="navbar-links logo">Shear Elegance</li>
+            <Link to="/">
+              <li className="navbar-links">Home</li>
+            </Link>
+            <Link to="/gallery">
+              <li className="navbar-links">Gallery</li>
+            </Link>
+            <Link to="/services">
+              <li className="navbar-links">Services</li>
+            </Link>
+            <Link to="/about">
+              <li className="navbar-links">About</li>
+            </Link>
+            <Link to="/contactus">
+              <li className="navbar-links">Contact</li>
+            </Link>
+            <li className="navbar-links">
+              <Link to="/login">
+                <i className="fas fa-user" />
+              </Link>
+              <Link to="/login">
+                <button className="nav-but">Login</button>
+              </Link>
+              <Link to="/">
+                <button className="nav-but" onClick={loggedOut}>
+                  Logout
+                </button>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+    );
+  } else {
     return (
       <section id="Navbar">
         <div className="calendar-container">
@@ -100,44 +140,6 @@ const Navbar = props => {
               </li>
             </ul>
           </section>
-        </div>
-      </section>
-    );
-  } else {
-    return (
-      <section id="Navbar">
-        <div className="Navbar-container">
-          <ul className="navbar-list">
-            <li className="navbar-links logo">Shear Elegance</li>
-            <Link to="/">
-              <li className="navbar-links">Home</li>
-            </Link>
-            <Link to="/gallery">
-              <li className="navbar-links">Gallery</li>
-            </Link>
-            <Link to="/services">
-              <li className="navbar-links">Services</li>
-            </Link>
-            <Link to="/about">
-              <li className="navbar-links">About</li>
-            </Link>
-            <Link to="/contactus">
-              <li className="navbar-links">Contact</li>
-            </Link>
-            <li className="navbar-links">
-              <Link to="/login">
-                <i className="fas fa-user" />
-              </Link>
-              <Link to="/login">
-                <button className="nav-but">Login</button>
-              </Link>
-              <Link to="/">
-                <button className="nav-but" onClick={loggedOut}>
-                  Logout
-                </button>
-              </Link>
-            </li>
-          </ul>
         </div>
       </section>
     );

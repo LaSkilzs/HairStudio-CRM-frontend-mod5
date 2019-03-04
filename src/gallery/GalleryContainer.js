@@ -15,6 +15,13 @@ class GalleryContainer extends React.Component {
     this.setState({ filteredGallery: this.props.galleries });
   }
 
+  componentDidMount() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+      this.props.history.push("/login");
+    }
+  }
+
   handleChange = value => {
     this.setState({ value });
   };

@@ -12,6 +12,15 @@ class LoginCard extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const username = localStorage.getItem("username");
+
+    if (username) {
+      this.props.loggedIn(username);
+      this.props.history.push("/profile");
+    }
+  }
+
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {

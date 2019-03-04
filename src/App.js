@@ -35,10 +35,12 @@ class App extends React.Component {
   }
 
   loggedIn = username => {
+    localStorage.setItem("username", username);
     this.setState({ username });
   };
 
   loggedOut = () => {
+    localStorage.removeItem("username", "");
     this.setState({ username: "", user: {} });
   };
 
@@ -115,17 +117,29 @@ class App extends React.Component {
               <GalleryContainer
                 galleries={this.state.galleries}
                 username={this.username}
+                {...routerProps}
               />
             )}
           />
           <Route path="/contact" component={Contact} />
-          <Route path="/dashboard" component={Dashboard} />
-
-          <Route path="/newsfeed" component={NewsFeed} />
+          <Route
+            path="/dashboard"
+            component={routerProps => (
+              <Dashboard username={this.username} {...routerProps} />
+            )}
+          />
+          <Route
+            path="/newsfeed"
+            component={routerProps => (
+              <NewsFeed username={this.username} {...routerProps} />
+            )}
+          />
 
           <Route
             path="/appointment"
-            component={routerProps => <Appointment {...routerProps} />}
+            component={routerProps => (
+              <Appointment username={this.username} {...routerProps} />
+            )}
           />
           <Route path="/haircard" component={CreateHairCard} />
           <Route
