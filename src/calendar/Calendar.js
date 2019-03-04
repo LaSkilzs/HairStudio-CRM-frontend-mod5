@@ -5,6 +5,7 @@ import API from "../API";
 class Calendar extends React.Component {
   componentDidMount() {
     const username = localStorage.getItem("username");
+
     API.authenticate(username).then(data => {
       if (data.error) {
         this.props.loggedOut();
