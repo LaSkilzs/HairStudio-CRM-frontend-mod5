@@ -34,46 +34,29 @@ class NewsFeedList extends React.Component {
         <React.Fragment>
           <ul id="comments">
             <h1 className="feeds-header">News Feed Title</h1>
-            {this.props.comments.map(comment => {
+            {this.props.conversation.comments.map(comment => {
               return (
                 <li className="comment">
-                  <div className="avatar">
-                    <a href="##" className="userlink">
-                      <img src="" alt="userimage" className="news-image" />
-                    </a>
-                  </div>
-                  <div className="comment-content">
-                    <header className="comments-head">
-                      <a href="##" className="userlink">
-                        {this.props.user.username}
-                        username with link to profile page
-                      </a>
-                      <span className="comments-span">date posted</span>
-                    </header>
-                    <p className="comment-para">
-                      {comment.text}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Est error?
-                    </p>
-                  </div>
+                  <div className="avatar" />
+
                   <ul id="replies">
                     <li className="comment">
                       <div className="avatar">
                         <a href="##" className="userlink">
-                          <img src="" alt="userimage" />
+                          <img
+                            src="https://www.greencointoken.com/assets/images/avatar.png"
+                            alt="userimage"
+                            style={{ width: "3rem" }}
+                          />
                         </a>
                       </div>
                       <div className="comment-content">
                         <header className="comments-head">
-                          username with link to profile page
-                          {comment.username}
+                          username
+                          {/* {comment.username} */}
                           <span className="comments-span">date posted</span>
                         </header>
-                        <p className="comment-para">
-                          {comment.text}
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit.
-                        </p>
+                        <p className="comment-para">{comment.text}</p>
                       </div>
                     </li>
                   </ul>

@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 
 const CalendarList = props => {
   const { user, appointments, profile } = props.user;
-
+  console.log(user);
+  console.log(appointments);
+  console.log(profile);
   return (
     <div>
       <section id="content-area">
         <div className="head">
           <h1 className="headprof">Profile</h1>
-          <p className="headpara">Welcome, {profile.full_name}</p>
+          <p className="headpara">Welcome, {user.username}</p>
         </div>
 
         <div className="cards">
@@ -23,7 +25,7 @@ const CalendarList = props => {
                 style={{ width: "130px", borderRadius: "50%" }}
               />
             </div>
-            <span className="user-name">{profile.full_name}</span>
+            <span className="user-name">{profile[0].full_name}</span>
             <span className="user-title">{user.personality}</span>
             <hr />
             <div className="col-md-9">

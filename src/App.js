@@ -27,6 +27,7 @@ class App extends React.Component {
     super();
     this.state = {
       username: "",
+      jwt: "",
       salon: [],
       services: [],
       galleries: [],
@@ -34,17 +35,18 @@ class App extends React.Component {
     };
   }
 
-  loggedIn = username => {
-    localStorage.setItem("username", username);
-    this.setState({ username });
+  loggedIn = (data) => {
+    localStorage.setItem("jwt", data.jwt);
+    // localStorage.setItem("jwt", data.role);
   };
 
   loggedOut = () => {
-    localStorage.removeItem("username", "");
-    this.setState({ username: "", user: {} });
+    localStorage.removeItem("jwt", "");
+    this.setState({ username: "", user: {}, jwt: "" });
   };
 
-  updateUser = user => this.setState({ user });
+  updateUser = user => this.setState({ user, username: user.username });
+
 
   async componentDidMount() {
     const responseSa = await fetch("http://localhost:3000/api/v1/salons");
@@ -57,7 +59,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
+    console.log("app", this.state.user);
     return (
       <div className="main-container">
         <Navbar
@@ -88,6 +90,7 @@ class App extends React.Component {
                 loggedIn={this.loggedIn}
                 {...routerProps}
                 updateUser={this.updateUser}
+                username={this.state.username}
               />
             )}
           />

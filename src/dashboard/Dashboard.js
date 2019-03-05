@@ -3,8 +3,8 @@ import DashboardContainer from "./DashboardContainer";
 
 class Dashboard extends React.Component {
   componentDidMount() {
-    const username = localStorage.getItem("username");
-    if (!username) {
+    const token = localStorage.getItem("token");
+    if (!token) {
       this.props.history.push("/login");
     }
   }

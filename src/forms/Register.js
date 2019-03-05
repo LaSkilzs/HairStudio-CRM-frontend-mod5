@@ -24,7 +24,7 @@ class Register extends React.Component {
     API.register(user).then(data => {
       this.props.updateUser(data);
       if (user !== {}) {
-        this.props.loggedIn(user.username);
+        this.props.loggedIn(data);
         this.props.history.push("/profile");
       } else {
         this.props.history.push("/login");

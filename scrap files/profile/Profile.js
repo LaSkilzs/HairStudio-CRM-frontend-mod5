@@ -20,12 +20,12 @@ class Profile extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    if (!this.props.username) {
-      console.log(this.props);
-      this.props.history.push("/");
-    }
-  }
+  // componentDidMount() {
+  //   if (!this.props.username) {
+  //     console.log(this.props);
+  //     this.props.history.push("/");
+  //   }
+  // }
 
   render() {
     return (

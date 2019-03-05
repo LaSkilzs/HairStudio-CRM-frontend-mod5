@@ -15,8 +15,8 @@ class Appointment extends React.Component {
   }
 
   async componentDidMount() {
-    const username = localStorage.getItem("username");
-    if (!username) {
+    const token = localStorage.getItem("token");
+    if (!token) {
       this.props.history.push("/login");
     }
     const response_ap = await fetch(

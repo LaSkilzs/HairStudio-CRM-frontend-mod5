@@ -16,8 +16,8 @@ class GalleryContainer extends React.Component {
   }
 
   componentDidMount() {
-    const username = localStorage.getItem("username");
-    if (!username) {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
       this.props.history.push("/login");
     }
   }

@@ -3,10 +3,10 @@ import "../css/navbar.css";
 import { Link } from "react-router-dom";
 
 const Navbar = props => {
-  const username = localStorage.getItem("username");
-  console.log(username);
+  const token = localStorage.getItem("jwt");
+  console.log("navbar", token);
   const { loggedOut } = props;
-  if (username === null) {
+  if (!token) {
     return (
       <section id="Navbar">
         <div className="Navbar-container">

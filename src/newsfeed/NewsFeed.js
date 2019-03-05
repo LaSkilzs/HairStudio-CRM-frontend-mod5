@@ -1,11 +1,11 @@
 import React from "react";
 import NewsFeedContainer from "./NewsFeedContainer";
-import API from "../API";
+// import API from "../API";
 
 class NewsFeed extends React.Component {
   componentDidMount() {
-    const username = localStorage.getItem("username");
-    if (!username) {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
       this.props.history.push("/login");
     }
   }
