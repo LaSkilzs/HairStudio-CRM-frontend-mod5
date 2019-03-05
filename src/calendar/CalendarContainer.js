@@ -12,8 +12,10 @@ class CalendarContainer extends React.Component {
       profile: []
     };
   }
-  componentWillMount() {
-    if (this.props.user.id !== this.state.user.id) {
+
+  componentDidMount() {
+    console.log(this.props.user);
+    if (this.props.user.id !== this.state.user_id) {
       const { user } = this.props;
       return this.setState({
         user: {
@@ -21,8 +23,8 @@ class CalendarContainer extends React.Component {
           id: user.id,
           role: user.role,
           image: user.image,
-          // personality: user.hair_personalities[0].name
-          personality: "none"
+          personality: user.hair_personalities[0].name
+          // personality: "none"
         },
         haircard: user.hair_cards[0],
         profile: user.profiles[0],
@@ -46,10 +48,10 @@ class CalendarContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log("calendar", this.state);
     return (
       <div>
-        <CalendarList user={this.state} />
+        <CalendarList user={this.props.user} />
       </div>
     );
   }

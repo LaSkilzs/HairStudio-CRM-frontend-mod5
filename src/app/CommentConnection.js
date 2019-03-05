@@ -1,10 +1,10 @@
 import React from "react";
 import { ActionCableConsumer } from "react-actioncable-provider";
 
-const CommentConnection = ({ conversations, handleReceivedComment }) => {
+const CommentConnection = props => {
   return (
     <React.Fragment>
-      {conversations.map(conversation => {
+      {props.conversations.map(conversation => {
         return (
           <ActionCableConsumer
             key={conversation.id}
@@ -12,7 +12,7 @@ const CommentConnection = ({ conversations, handleReceivedComment }) => {
               channel: "CommentsChannel",
               conversation: conversation.id
             }}
-            onReceived={handleReceivedComment}
+            onReceived={console.log}
           />
         );
       })}

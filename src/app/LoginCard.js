@@ -13,10 +13,10 @@ class LoginCard extends React.Component {
   }
 
   componentDidMount() {
-    const username = localStorage.getItem("username");
+    const token = localStorage.getItem("jwt");
 
-    if (username) {
-      this.props.loggedIn(username);
+    if (token) {
+      this.props.loggedIn(this.props.username);
       this.props.history.push("/profile");
     }
   }
@@ -28,8 +28,9 @@ class LoginCard extends React.Component {
     const user = this.state;
     API.login(user).then(data => {
       this.props.updateUser(data);
+      console.log(data)
       if (user !== {}) {
-        this.props.loggedIn(user.username);
+        this.props.loggedIn(data);
         this.props.history.push("/profile");
       } else {
         this.props.history.push("/login");

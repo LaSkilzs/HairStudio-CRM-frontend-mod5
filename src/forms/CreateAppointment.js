@@ -1,5 +1,7 @@
 import React from "react";
 import API from "../API";
+import DayPicker from "react-day-picker";
+import "react-day-picker/lib/style.css";
 
 class CreateAppointment extends React.Component {
   constructor() {
@@ -12,33 +14,52 @@ class CreateAppointment extends React.Component {
       status: "pending",
       service_total: 0.0,
       stylist_id: 1,
-      user_id: 40
+      user_id: 40,
+      selectedDate: undefined
     };
   }
 
   onSubmit = e => {
     e.preventDefault();
     const appointment = this.state;
-    if (API.scheduleAppointment(appointment)) {
-      alert("appointment created");
-    }
+    // if (API.scheduleAppointment(appointment)) {
+    //   alert("appointment created");
+    // }
+    console.log(appointment);
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleDayClick = (day, { selected, disabled }) => {
+    if (disabled) {
+      return;
+    }
+    if (selected) {
+      this.setState({ selectedDay: undefined });
+      return;
+    }
+    this.setState({ selectedDay: day });
+  };
+
   render() {
     return (
       <React.Fragment>
         <div className="form-container">
-          <form onSubmit={e => this.onSubmit(e)} className="create">
+          {/* <form onSubmit={e => this.onSubmit(e)} className="create">
             <h1 className="form-header">Create Appointment</h1>
             <hr />
-            <input
-              type="date"
-              className="select"
-              placeholder="date"
-              name="date"
-              onChange={e => this.handleChange(e)}
-            />
+              <div className="appointment-card">
+                <DayPicker
+                  onDayClick={this.handleDayClick}
+                  selectedDays={this.state.selectedDay}
+                  disabledDays={{ daysOfWeek: [0, 1] }}
+                />
+                {this.state.selectedDay ? (
+                  <p>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
+                ) : (
+                  <p> Please select a day.</p>
+                )}
+              </div>
             <input
               type="time"
               className="select"
@@ -73,17 +94,22 @@ class CreateAppointment extends React.Component {
             >
               submit
             </button>
-          </form>
+          </form> */}
           <form onSubmit={e => this.onSubmit(e)} className="create">
-            <h1 className="form-header">Confirm Appointment</h1>
+            <h1 className="form-header">Book Appointment</h1>
             <hr />
-            <input
-              type="date"
-              className="select"
-              placeholder="date"
-              name="date"
-              onChange={e => this.handleChange(e)}
-            />
+            <div>
+              <DayPicker
+                onDayClick={this.handleDayClick}
+                selectedDays={this.state.selectedDay}
+                disabledDays={{ daysOfWeek: [0, 1] }}
+              />
+              {this.state.selectedDay ? (
+                <p>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
+              ) : (
+                <p> Please select a day.</p>
+              )}
+            </div>
             <input
               type="time"
               className="select"

@@ -18,8 +18,6 @@ class CreateProfile extends React.Component {
     };
   }
 
-
-
   onSubmit = e => {
     e.preventDefault();
     const profile = this.state;

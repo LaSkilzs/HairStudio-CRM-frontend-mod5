@@ -43,8 +43,6 @@ class NewsFeedContainer extends React.Component {
   };
 
   render() {
-    console.log(this.state.conversations);
-    const { conversations, activeConversation } = this.state;
     const findActiveConversation = (conversations, activeConversation) => {
       return conversations.find(
         conversation => conversation.id === activeConversation
@@ -53,7 +51,7 @@ class NewsFeedContainer extends React.Component {
 
     return (
       <React.Fragment>
-        {this.state.conversations.length ? (
+        {this.state.conversations.length > 0 ? (
           <CommentConnection
             conversations={this.state.conversations}
             handleReceivedComment={this.handleReceivedComment}
@@ -68,10 +66,9 @@ class NewsFeedContainer extends React.Component {
           {this.state.activeConversations > 0 ? (
             <NewsFeedList
               conversation={findActiveConversation(
-                conversations,
-                activeConversation
+                this.state.conversations,
+                this.state.activeConversations
               )}
-              comments={this.state.comments}
               activeConversations={this.state.activeConversations}
             />
           ) : null}

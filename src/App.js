@@ -27,6 +27,7 @@ class App extends React.Component {
     super();
     this.state = {
       username: "",
+      jwt: "",
       salon: [],
       services: [],
       galleries: [],
@@ -34,17 +35,21 @@ class App extends React.Component {
     };
   }
 
-  loggedIn = username => {
-    localStorage.setItem("username", username);
-    this.setState({ username });
+  loggedIn = data => {
+    console.log(data.username);
+    localStorage.setItem("jwt", data.jwt);
+    localStorage.setItem("username", data.username);
   };
 
   loggedOut = () => {
+    localStorage.removeItem("jwt", "");
     localStorage.removeItem("username", "");
-    this.setState({ username: "", user: {} });
+    this.setState({ username: "", user: {}, jwt: "" });
   };
 
-  updateUser = user => this.setState({ user });
+  updateUser = user => {
+    return this.setState({ user, username: user.username });
+  };
 
   async componentDidMount() {
     const responseSa = await fetch("http://localhost:3000/api/v1/salons");
@@ -57,7 +62,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
+    console.log("app", this.state.user);
     return (
       <div className="main-container">
         <Navbar
@@ -88,6 +93,7 @@ class App extends React.Component {
                 loggedIn={this.loggedIn}
                 {...routerProps}
                 updateUser={this.updateUser}
+                username={this.state.username}
               />
             )}
           />
@@ -138,7 +144,11 @@ class App extends React.Component {
           <Route
             path="/appointment"
             component={routerProps => (
-              <Appointment username={this.username} {...routerProps} />
+              <Appointment
+                username={this.username}
+                {...routerProps}
+                user={this.user}
+              />
             )}
           />
           <Route path="/haircard" component={CreateHairCard} />

@@ -2,8 +2,6 @@ import React from "react";
 import "../css/contact.css";
 
 const Contact = ({ salon }) => {
-  console.log(salon);
-
   return (
     <section id="Contact">
       <div className="title">

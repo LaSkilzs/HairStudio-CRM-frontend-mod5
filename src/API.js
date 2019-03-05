@@ -19,11 +19,13 @@ class API {
     return data;
   }
 
-  static async authenticate(user) {
-    const response = await fetch("https://localhost:3000/api/v1/auth", {
+  static async authenticate() {
+    let token = localStorage.getItem("jwt");
+    console.log(token);
+    const response = await fetch("http://localhost:3000/api/v1/auth", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("username")
+        Authorization: `Bearer, ${token}`
       }
     });
     const data = await response.json();
@@ -54,15 +56,17 @@ class API {
       });
   }
 
-  static async sendComment(comment) {
-    const response = await fetch("http://localhost:3000/api/v1/comments", {
+  static sendComment(comment) {
+    fetch("http://localhost:3000/api/v1/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(comment)
-    });
+    })
+      .then(res => res.json())
+      .then(console.log);
 
-    const data = response.json();
-    console.log(data);
+    // const data = await response.json();
+    // console.log(data);
   }
 
   static createHairCard(haircard) {
