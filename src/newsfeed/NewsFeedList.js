@@ -21,14 +21,12 @@ class NewsFeedList extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const comment = this.state;
-    console.log(comment);
     if (API.sendComment(comment)) {
       this.setState({ text: "" });
     }
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <React.Fragment>

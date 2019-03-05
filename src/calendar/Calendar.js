@@ -13,7 +13,7 @@ class Calendar extends React.Component {
     };
   }
 
-  // componentDidMount() {
+  // componentWillMount() {
   //   const token = localStorage.getItem("jwt");
   //   if (token) {
   //     API.authenticate().then(data => {

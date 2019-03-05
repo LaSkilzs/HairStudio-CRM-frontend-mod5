@@ -1,6 +1,5 @@
 import React from "react";
 import NewsFeedContainer from "./NewsFeedContainer";
-// import API from "../API";
 
 class NewsFeed extends React.Component {
   componentDidMount() {

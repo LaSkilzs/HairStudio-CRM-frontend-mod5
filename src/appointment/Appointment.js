@@ -14,8 +14,8 @@ class Appointment extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    const token = localStorage.getItem("token");
+  async componentWillMount() {
+    const token = localStorage.getItem("jwt");
     if (!token) {
       this.props.history.push("/login");
     }
@@ -46,20 +46,21 @@ class Appointment extends React.Component {
   };
 
   render() {
+    console.log(this.state.appointments);
     const localizer = BigCalendar.momentLocalizer(moment);
-    // let allViews = Object.keys(BigCalendar.Views).map(
-    //   k => BigCalendar.Views[k]
-    // );
+    let allViews = Object.keys(BigCalendar.Views).map(
+      k => BigCalendar.Views[k]
+    );
     return (
       <div className="appointment-container">
         <BigCalendar
           selectable
           localizer={localizer}
-          defaultView={BigCalendar.Views.MONTH}
-          scrollToTime={new Date(1970, 1, 1, 6)}
-          defaultDate={new Date(2018, 1, 1)}
-          onSelectEvent={e => alert("hi")}
+          step={60}
+          showMultiDayTimes
+          onSelectEvent={e => console.log(e)}
           onSelectSlot={this.handleSelect}
+          views={allViews}
           events={this.state.events}
           style={{ height: "90vh", marginLeft: "250px", marginRight: "100px" }}
         />

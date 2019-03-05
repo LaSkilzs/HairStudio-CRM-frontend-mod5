@@ -35,18 +35,21 @@ class App extends React.Component {
     };
   }
 
-  loggedIn = (data) => {
+  loggedIn = data => {
+    console.log(data.username);
     localStorage.setItem("jwt", data.jwt);
-    // localStorage.setItem("jwt", data.role);
+    localStorage.setItem("username", data.username);
   };
 
   loggedOut = () => {
     localStorage.removeItem("jwt", "");
+    localStorage.removeItem("username", "");
     this.setState({ username: "", user: {}, jwt: "" });
   };
 
-  updateUser = user => this.setState({ user, username: user.username });
-
+  updateUser = user => {
+    return this.setState({ user, username: user.username });
+  };
 
   async componentDidMount() {
     const responseSa = await fetch("http://localhost:3000/api/v1/salons");
@@ -141,7 +144,11 @@ class App extends React.Component {
           <Route
             path="/appointment"
             component={routerProps => (
-              <Appointment username={this.username} {...routerProps} />
+              <Appointment
+                username={this.username}
+                {...routerProps}
+                user={this.user}
+              />
             )}
           />
           <Route path="/haircard" component={CreateHairCard} />

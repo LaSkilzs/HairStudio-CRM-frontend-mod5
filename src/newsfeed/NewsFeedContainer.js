@@ -43,8 +43,6 @@ class NewsFeedContainer extends React.Component {
   };
 
   render() {
-    console.log(this.state.conversations);
-    const { conversations, activeConversation } = this.state;
     const findActiveConversation = (conversations, activeConversation) => {
       return conversations.find(
         conversation => conversation.id === activeConversation
