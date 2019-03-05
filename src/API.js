@@ -29,7 +29,7 @@ class API {
       }
     });
     const data = await response.json();
-    console.log(data);
+    return data;
   }
 
   static createProfile(profile) {

@@ -16,7 +16,7 @@ class LoginCard extends React.Component {
     const token = localStorage.getItem("jwt");
 
     if (token) {
-      this.props.loggedIn(this.props.username);
+      // this.props.loggedIn(this.props.username);
       this.props.history.push("/profile");
     }
   }
@@ -27,9 +27,9 @@ class LoginCard extends React.Component {
     e.preventDefault();
     const user = this.state;
     API.login(user).then(data => {
-      this.props.updateUser(data);
-      console.log(data)
-      if (user !== {}) {
+      this.props.updateUser(data.user);
+      console.log("LOGGEDIN", data);
+      if (Object.keys(data).length > 0) {
         this.props.loggedIn(data);
         this.props.history.push("/profile");
       } else {

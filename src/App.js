@@ -21,6 +21,7 @@ import CreateAppointment from "./forms/CreateAppointment";
 import CreateHairCard from "./forms/CreateHairCard";
 import CreateProfile from "./forms/CreateProfile";
 import { Route, Switch } from "react-router-dom";
+import API from "./API";
 
 class App extends React.Component {
   constructor() {
@@ -31,14 +32,17 @@ class App extends React.Component {
       salon: [],
       services: [],
       galleries: [],
+      profiles: [],
+      hair_cards: [],
+      appointments: [],
       user: {}
     };
   }
 
   loggedIn = data => {
-    console.log(data.username);
+    console.log(data);
     localStorage.setItem("jwt", data.jwt);
-    localStorage.setItem("username", data.username);
+    localStorage.setItem("username", data.user.username);
   };
 
   loggedOut = () => {
@@ -48,10 +52,25 @@ class App extends React.Component {
   };
 
   updateUser = user => {
-    return this.setState({ user, username: user.username });
+    console.log("updateUser", user);
+    return this.setState({
+      user,
+      username: user.username,
+      profiles: user.profiles,
+      appointments: user.appointments,
+      hair_cards: user.hair_cards
+    });
   };
 
   async componentDidMount() {
+    const token = localStorage.getItem("jwt");
+
+    if (token) {
+      API.authenticate().then(data => {
+        console.log("REAUTH", data);
+        this.updateUser(data.user);
+      });
+    }
     const responseSa = await fetch("http://localhost:3000/api/v1/salons");
     const responseSe = await fetch("http://localhost:3000/api/v1/services");
     const responseGa = await fetch("http://localhost:3000/api/v1/galleries");

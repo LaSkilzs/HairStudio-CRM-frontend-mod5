@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../API";
+// import API from "../API";
 import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 
@@ -45,56 +45,6 @@ class CreateAppointment extends React.Component {
     return (
       <React.Fragment>
         <div className="form-container">
-          {/* <form onSubmit={e => this.onSubmit(e)} className="create">
-            <h1 className="form-header">Create Appointment</h1>
-            <hr />
-              <div className="appointment-card">
-                <DayPicker
-                  onDayClick={this.handleDayClick}
-                  selectedDays={this.state.selectedDay}
-                  disabledDays={{ daysOfWeek: [0, 1] }}
-                />
-                {this.state.selectedDay ? (
-                  <p>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
-                ) : (
-                  <p> Please select a day.</p>
-                )}
-              </div>
-            <input
-              type="time"
-              className="select"
-              placeholder="time"
-              name="time"
-              onChange={e => this.handleChange(e)}
-            />
-            <input
-              type="text"
-              className="select"
-              placeholder="hairstyle"
-              name="hairstyle"
-              onChange={e => this.handleChange(e)}
-            />
-            <select
-              name="stylist_id"
-              id="stylist"
-              className="select"
-              onChange={e => this.handleChange(e)}
-            >
-              <option value="1">Name1</option>
-              <option value="2">Name2</option>
-            </select>
-            <button
-              type="submit"
-              className="primary-btn"
-              style={{
-                color: "var(--pink)",
-                border: "2px solid purple",
-                fontSize: "20px"
-              }}
-            >
-              submit
-            </button>
-          </form> */}
           <form onSubmit={e => this.onSubmit(e)} className="create">
             <h1 className="form-header">Book Appointment</h1>
             <hr />
