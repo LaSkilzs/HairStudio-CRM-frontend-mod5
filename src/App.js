@@ -42,12 +42,14 @@ class App extends React.Component {
   loggedIn = data => {
     console.log(data);
     localStorage.setItem("jwt", data.jwt);
+    localStorage.setItem("role", data.role);
     localStorage.setItem("username", data.user.username);
   };
 
   loggedOut = () => {
     localStorage.removeItem("jwt", "");
     localStorage.removeItem("username", "");
+    localStorage.removeItem("roe", "");
     this.setState({ username: "", user: {}, jwt: "" });
   };
 
@@ -56,9 +58,10 @@ class App extends React.Component {
     return this.setState({
       user,
       username: user.username,
-      profiles: user.profiles,
+      profiles: user.profiles[0],
       appointments: user.appointments,
-      hair_cards: user.hair_cards
+      hair_cards: user.hair_cards[0],
+      personality: user.hair_personalities[0].name
     });
   };
 

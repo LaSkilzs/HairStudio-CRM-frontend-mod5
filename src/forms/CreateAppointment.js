@@ -1,13 +1,14 @@
 import React from "react";
 // import API from "../API";
-import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
+import moment from "moment";
+import DayPickerInput from "react-day-picker/DayPickerInput";
 
 class CreateAppointment extends React.Component {
   constructor() {
     super();
     this.state = {
-      date: "",
+      day: "",
       start_time: "",
       duration: "",
       hairstyle: "",
@@ -30,18 +31,13 @@ class CreateAppointment extends React.Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleDayClick = (day, { selected, disabled }) => {
-    if (disabled) {
-      return;
-    }
-    if (selected) {
-      this.setState({ selectedDay: undefined });
-      return;
-    }
-    this.setState({ selectedDay: day });
+  handleDayChange = day => {
+    console.log(moment(day).format("LL"));
+    this.setState({ day: moment(day).format("LL") });
   };
 
   render() {
+    const { selectedDay } = this.state;
     return (
       <React.Fragment>
         <div className="form-container">
@@ -49,22 +45,15 @@ class CreateAppointment extends React.Component {
             <h1 className="form-header">Book Appointment</h1>
             <hr />
             <div>
-              <DayPicker
-                onDayClick={this.handleDayClick}
-                selectedDays={this.state.selectedDay}
-                disabledDays={{ daysOfWeek: [0, 1] }}
-              />
-              {this.state.selectedDay ? (
-                <p>You clicked {this.state.selectedDay.toLocaleDateString()}</p>
-              ) : (
-                <p> Please select a day.</p>
-              )}
+              {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
+              {!selectedDay && <p>Choose a day</p>}
+              <DayPickerInput onDayChange={this.handleDayChange} />
             </div>
             <input
               type="time"
               className="select"
               placeholder="time"
-              name="time"
+              name="start_time"
               onChange={e => this.handleChange(e)}
             />
             <input

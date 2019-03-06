@@ -14,7 +14,7 @@ class Appointment extends React.Component {
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const token = localStorage.getItem("jwt");
     if (!token) {
       this.props.history.push("/login");
@@ -33,9 +33,9 @@ class Appointment extends React.Component {
     const events = [...this.state.appointments].map(appointment => {
       return {
         title: appointment.name,
-        start: appointment.date,
-        end: appointment.date,
-        time: appointment.set_time
+        start: new Date(appointment.date),
+          end: new Date(appointment.date),
+         time: appointment.start_time
       };
     });
     this.setState({ events });
@@ -56,8 +56,9 @@ class Appointment extends React.Component {
         <BigCalendar
           selectable
           localizer={localizer}
-          step={60}
+          step={30}
           showMultiDayTimes
+          defaultView="month"
           onSelectEvent={e => console.log(e)}
           onSelectSlot={this.handleSelect}
           views={allViews}
