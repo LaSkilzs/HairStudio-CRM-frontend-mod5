@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Navbar = props => {
   const token = localStorage.getItem("jwt");
-  console.log("navbar", token);
   const { loggedOut } = props;
   if (!token) {
     return (

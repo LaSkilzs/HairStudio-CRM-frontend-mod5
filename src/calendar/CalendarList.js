@@ -1,6 +1,7 @@
 import React from "react";
 import CalendarCard from "./CalendarCard";
 import { Link } from "react-router-dom";
+import moment from 'moment'
 
 const CalendarList = props => {
   const { appointments, profiles, hair_cards, hair_personalities } = props.user;
@@ -40,11 +41,11 @@ const CalendarList = props => {
                   </tr>
                   <tr>
                     <td className="cal-quest">Hair is: </td>
-                    <td className="cal-response">hair_cards[0].hair_is</td>
+                    <td className="cal-response">{hair_cards[0].hair_is}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Hair Length: </td>
-                    <td className="cal-response"> hair_cards[0].length</td>
+                    <td className="cal-response"> {hair_cards[0].length}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Personal Stylist </td>
@@ -75,23 +76,23 @@ const CalendarList = props => {
                 <tbody className="cal-tbody">
                   <tr>
                     <td className="cal-quest"> Date: </td>
-                    <td className="cal-response">March 12, 2019</td>
+                    <td className="cal-response">{moment(appointments[0].date).format('LL')}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Time: </td>
-                    <td className="cal-response">10:30 AM</td>
+                    <td className="cal-response">{moment(appointments[0].start_time).format('HH:mm A')} </td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Estimated duration: </td>
-                    <td className="cal-response"> 90 mins</td>
+                    <td className="cal-response"> {appointments[0].duration} mins</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">HairStyle </td>
-                    <td className="cal-response">Updo</td>
+                    <td className="cal-response">{appointments[0].hairstyle}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Beautician </td>
-                    <td className="cal-response">Kim</td>
+                    <td className="cal-response">{appointments[0].stylist_id}</td>
                   </tr>
                 </tbody>
               </table>
@@ -119,55 +120,55 @@ const CalendarList = props => {
                     <td className="cal-quest">
                       Have you ever suffered from hair loss
                     </td>
-                    <td className="cal-span">{hair_cards[0].suffered_from_hair_loss}</td>
+                    <td className="cal-span">{hair_cards[0].suffered_from_hair_loss.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Have you been diagnosed with alopecia?
                     </td>
-                    <td className="cal-span">{hair_cards[0].been_diagnosed_with_alopecia}</td>
+                    <td className="cal-span">{hair_cards[0].been_diagnosed_with_alopecia.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Do you suffer from psoriasis to the scalp?
                     </td>
-                    <td className="cal-span">{hair_cards[0].suffer_from_psoriasis_to_the_scalp}</td>
+                    <td className="cal-span">{hair_cards[0].suffer_from_psoriasis_to_the_scalp.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Have you been pregnant in the last 6 months?
                     </td>
-                    <td className="cal-span">{hair_cards[0].been_pregnant_in_the_last_6_months}</td>
+                    <td className="cal-span">{hair_cards[0].been_pregnant_in_the_last_6_months.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Do you currently take any medication?
                     </td>
-                    <td className="cal-span">{hair_cards[0].take_any_medication}</td>
+                    <td className="cal-span">{hair_cards[0].take_any_medication.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Sensitive Scalp? </td>
-                    <td className="cal-span">{hair_cards[0].have_a_sensitive_scalp}</td>
+                    <td className="cal-span">{hair_cards[0].have_a_sensitive_scalp.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Swim or Workout frequently? </td>
-                    <td className="cal-span">{hair_cards[0].frequently_swim_or_go_to_the_gym}</td>
+                    <td className="cal-span">{hair_cards[0].frequently_swim_or_go_to_the_gym.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Currently have colour/rinse in your hair?
                     </td>
-                    <td className="cal-span">{hair_cards[0].currently_have_colour_in_your_hair}</td>
+                    <td className="cal-span">{hair_cards[0].currently_have_colour_in_your_hair.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Currently have hair extensions?
                     </td>
-                    <td className="cal-span">{hair_cards[0].used_hair_extensions_before}</td>
+                    <td className="cal-span">{hair_cards[0].used_hair_extensions_before.toString()}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">You prefer to wash your hair:</td>
-                    <td className="cal-span">{hair_cards[0].wash_frequency}</td>
+                    <td className="cal-span">{hair_cards[0].wash_frequency.toString()}</td>
                   </tr>
                 </tbody>
               </table>
