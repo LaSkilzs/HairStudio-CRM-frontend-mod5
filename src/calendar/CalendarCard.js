@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 const CalendarCard = props => {
   console.log(props);
@@ -19,8 +20,8 @@ const CalendarCard = props => {
           {props.appointments.map((appointment, index) => {
             return (
               <tr key={index}>
-                <td> {appointment.date}</td>
-                <td> {appointment.start_time} </td>
+                <td> {moment(appointment.date).format('LL')}</td>
+                <td> {moment(appointment.start_time).format('HH:mm ')} </td>
                 <td> {appointment.title} </td>
                 <td> {appointment.stylist_id} </td>
                 <td> {appointment.status}</td>

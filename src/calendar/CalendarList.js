@@ -3,7 +3,7 @@ import CalendarCard from "./CalendarCard";
 import { Link } from "react-router-dom";
 
 const CalendarList = props => {
-  const { appointments, profiles } = props.user;
+  const { appointments, profiles, hair_cards, hair_personalities } = props.user;
   const { user } = props;
 
   console.log(props);
@@ -29,22 +29,22 @@ const CalendarList = props => {
                 <h3>{profiles[0].full_name}</h3>
               </div>
               <div className="user-title">
-                <h2 className="user-title">{user.personality}</h2>
+                <h2 className="user-title">{hair_personalities[0].name}</h2>
               </div>
               <hr className="cal-spacer" />
               <table className="cal-appoint-list">
                 <tbody>
                   <tr>
                     <td className="cal-quest"> Hair Type: </td>
-                    <td className="cal-response">Wavy</td>
+                    <td className="cal-response">{hair_cards[0].hair_type}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Hair is: </td>
-                    <td className="cal-response">Thick</td>
+                    <td className="cal-response">hair_cards[0].hair_is</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Hair Length: </td>
-                    <td className="cal-response"> Below Shoulders</td>
+                    <td className="cal-response"> hair_cards[0].length</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Personal Stylist </td>
@@ -119,55 +119,55 @@ const CalendarList = props => {
                     <td className="cal-quest">
                       Have you ever suffered from hair loss
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].suffered_from_hair_loss}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Have you been diagnosed with alopecia?
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].been_diagnosed_with_alopecia}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Do you suffer from psoriasis to the scalp?
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].suffer_from_psoriasis_to_the_scalp}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
-                      Have you been pregnant in the last 6 months?{" "}
+                      Have you been pregnant in the last 6 months?
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].been_pregnant_in_the_last_6_months}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
-                      Do you currently take any medication?{" "}
+                      Do you currently take any medication?
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].take_any_medication}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Sensitive Scalp? </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].have_a_sensitive_scalp}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">Swim or Workout frequently? </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].frequently_swim_or_go_to_the_gym}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Currently have colour/rinse in your hair?
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].currently_have_colour_in_your_hair}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">
                       Currently have hair extensions?
                     </td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].used_hair_extensions_before}</td>
                   </tr>
                   <tr>
                     <td className="cal-quest">You prefer to wash your hair:</td>
-                    <td className="cal-span">No</td>
+                    <td className="cal-span">{hair_cards[0].wash_frequency}</td>
                   </tr>
                 </tbody>
               </table>
