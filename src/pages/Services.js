@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/services.css";
+import { Link } from "react-router-dom";
 
 class Services extends React.Component {
   constructor(props) {
@@ -8,6 +9,14 @@ class Services extends React.Component {
   }
 
   render() {
+    const icons = [
+      "fas fa-cut",
+      "fas fa-female",
+      "fas fa-ruler-horizontal",
+      "fas fa-fist-raised",
+      "fas fa-female",
+      "fas fa-cut"
+    ];
     return (
       <section id="Services">
         <div className="title">
@@ -17,21 +26,18 @@ class Services extends React.Component {
         <div className="services-container">
           {this.props.services.map((service, index) => (
             <article className="service-item" key={index}>
-              {service.name} <i className="fas fa-cut" />
+              {service.name} <i className={icons[index]} />
               <div className="service-title">
                 <ul className="service-list" />
                 {service.service_types.map((type, idx) => (
                   <li key={idx}>{type.name}</li>
                 ))}
-                <button className="service-button">Book Today</button>
+                <Link to="/appointment">
+                  <button className="service-button">Book Today</button>
+                </Link>
               </div>
             </article>
           ))}
-
-          {/* <i className="fas fa-female" />
-          <i className="fas fa-ruler-horizontal" />
-          <i className="fas fa-fist-raised" />
-          <i className="fas fa-info" /> */}
         </div>
       </section>
     );

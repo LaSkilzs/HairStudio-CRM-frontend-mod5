@@ -1,5 +1,6 @@
 import React from "react";
 import "./forms.css";
+import API from "../API";
 
 class CreateProfile extends React.Component {
   constructor(props) {
@@ -14,19 +15,20 @@ class CreateProfile extends React.Component {
       city: "",
       state: "",
       zip: "",
-      user_id: ""
+      user_id: this.props.user.id
     };
   }
 
   onSubmit = e => {
     e.preventDefault();
     const profile = this.state;
-    console.log(profile);
+    API.createProfile(profile);
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    console.log(this.props.user.id);
     return (
       <React.Fragment>
         <div className="form-container">
@@ -65,50 +67,56 @@ class CreateProfile extends React.Component {
               type="phone"
               className="select"
               placeholder="home phone"
-              name="home_phone"
+              name="home"
               onChange={e => this.handleChange(e)}
             />
             <input
               type="phone"
               className="select"
               placeholder="mobile phone"
-              name="mobile_phone"
+              name="mobile"
               onChange={e => this.handleChange(e)}
             />
             <input
-              type="input-form"
+              type="text"
               className="select"
               placeholder="street_1"
               name="street_1"
               onChange={e => this.handleChange(e)}
             />
             <input
-              type="input-form"
+              type="text"
               className="select"
               placeholder="street_2"
               name="street_2"
               onChange={e => this.handleChange(e)}
             />
             <input
-              type="input-form"
+              type="text"
               className="select"
               placeholder="city"
               name="city"
               onChange={e => this.handleChange(e)}
             />
             <input
-              type="input-form"
+              type="text"
               className="select"
               placeholder="state"
               name="state"
               onChange={e => this.handleChange(e)}
             />
             <input
-              type="zip"
+              type="number"
               className="select"
               placeholder="zip"
               name="zip"
               onChange={e => this.handleChange(e)}
+            />
+            <input
+              type="text"
+              className="select"
+              placeholder="user_id"
+              name="user_id"
             />
             <button
               type="submit"

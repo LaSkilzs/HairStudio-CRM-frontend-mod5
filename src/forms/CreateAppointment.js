@@ -3,10 +3,11 @@ import React from "react";
 import "react-day-picker/lib/style.css";
 import moment from "moment";
 import DayPickerInput from "react-day-picker/DayPickerInput";
+import API from "../API";
 
 class CreateAppointment extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       day: "",
       start_time: "",
@@ -15,17 +16,14 @@ class CreateAppointment extends React.Component {
       status: "pending",
       service_total: 0.0,
       stylist_id: 1,
-      user_id: 40,
-      selectedDate: undefined
+      user_id: this.props.user.id
     };
   }
 
   onSubmit = e => {
     e.preventDefault();
     const appointment = this.state;
-    // if (API.scheduleAppointment(appointment)) {
-    //   alert("appointment created");
-    // }
+    API.scheduleAppointment(appointment);
     console.log(appointment);
   };
 
@@ -82,7 +80,6 @@ class CreateAppointment extends React.Component {
               className="select"
               placeholder="user_id"
               name="user_id"
-              onChange={e => this.handleChange(e)}
             />
             <select
               name="status"

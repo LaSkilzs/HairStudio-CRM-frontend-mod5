@@ -12,10 +12,16 @@
   grid-area: "title" "map info";
 }
 
-.contact-icon {
-  font-size: 50px;
+.contact-icon .fas {
   margin-right: 20px;
+  margin-bottom: 20px;
   align-self: center;
+  font-size: 3rem;
+  color: var(--brown);
+}
+
+.contact-icon .fas:hover {
+  color: var(--pink);
 }
 
 .contact-detail {
@@ -48,7 +54,7 @@ iframe {
 .contact-list {
   list-style-type: none;
   padding: 10px;
-  font-size: 25px;
+  font-size: 20px;
   color: var(--brown);
   font-style: italic;
 }
@@ -68,10 +74,23 @@ iframe {
   display: block;
   padding: 0.8rem;
   margin: 15px;
-  margin-left: 7rem;
+  margin-left: 15rem;
   border: 2px solid var(--pink);
   background-color: var(--light);
   color: var(--brown);
   font-size: 18px;
   border-radius: 5px;
+}
+
+.contact-office p {
+  font-size: 1.5rem;
+}
+
+.contact-directions p {
+  font-size: 1.5rem;
+}
+
+#contact-comments {
+  font-size: 1rem;
+  width: 80%;
 }

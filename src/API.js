@@ -33,7 +33,7 @@ class API {
   }
 
   static createProfile(profile) {
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch("http://localhost:3000/api/v1/profiles", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(profile)
@@ -69,8 +69,21 @@ class API {
     // console.log(data);
   }
 
+  static sendMessage(message) {
+    fetch("http://localhost:3000/api/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message)
+    })
+      .then(res => res.json())
+      .then(console.log);
+
+    // const data = await response.json();
+    // console.log(data);
+  }
+
   static createHairCard(haircard) {
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch("http://localhost:3000/api/v1/hair_cards", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(haircard)

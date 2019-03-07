@@ -2,6 +2,7 @@ import React from "react";
 import "../css/navbar.css";
 import { Link } from "react-router-dom";
 
+
 const Navbar = props => {
   const token = localStorage.getItem("jwt");
   const { loggedOut } = props;
@@ -23,7 +24,7 @@ const Navbar = props => {
             <Link to="/about">
               <li className="navbar-links">About</li>
             </Link>
-            <Link to="/contactus">
+            <Link to="/contact">
               <li className="navbar-links">Contact</li>
             </Link>
             <li className="navbar-links">
