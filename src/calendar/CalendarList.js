@@ -8,7 +8,7 @@ const CalendarList = props => {
   const { user } = props;
 
   console.log(props);
-  if (profiles.length > 0) {
+  if (profiles && profiles.length > 0 && hair_cards.length > 0) {
     return (
       <div>
         <section id="content-area">
@@ -102,7 +102,7 @@ const CalendarList = props => {
                   <tr>
                     <td className="cal-quest">Beautician </td>
                     <td className="cal-response">
-                      {appointments[0].stylist_id}
+                      {appointments[0].stylist.username}
                     </td>
                   </tr>
                 </tbody>

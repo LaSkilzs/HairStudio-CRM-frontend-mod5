@@ -49,11 +49,7 @@ class API {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(title)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
+    });
   }
 
   static sendComment(comment) {
@@ -61,12 +57,11 @@ class API {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(comment)
-    })
-      .then(res => res.json())
-      .then(console.log);
-
-    // const data = await response.json();
-    // console.log(data);
+    });
+    // .then(res => res.json())
+    // .then(data => {
+    //   return data;
+    // });
   }
 
   static sendMessage(message) {

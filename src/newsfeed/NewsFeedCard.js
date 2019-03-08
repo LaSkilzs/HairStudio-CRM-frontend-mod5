@@ -16,8 +16,10 @@ class NewsFeedCard extends React.Component {
     const title = this.state;
     console.log(title);
     if (API.sendConversation(title)) {
-      this.setState({ title: "" });
+      this.props.handleReceivedConversation(title);
+      this.setState({ title: " " });
     }
+    this.setState({ title: " " });
     return alert("title not saved!");
   };
 
@@ -38,9 +40,9 @@ class NewsFeedCard extends React.Component {
                 </li>
               );
             })}
-
+            {/* 
             <li className="chatroom-li">Chat Room 2</li>
-            <li className="chatroom-li">Chat Room 3</li>
+            <li className="chatroom-li">Chat Room 3</li> */}
           </ul>
           <form onSubmit={e => this.handleSubmit(e)}>
             <input
@@ -48,6 +50,7 @@ class NewsFeedCard extends React.Component {
               name="title"
               className="news-input"
               placeholder="Create New ChatRoom"
+              value={this.state.title}
               onChange={e => this.handleChange(e.target.value)}
               style={{ border: "2px solid var(--brown)" }}
             />

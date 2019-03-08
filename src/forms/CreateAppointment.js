@@ -9,7 +9,7 @@ class CreateAppointment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      day: "",
+      date: "",
       start_time: "",
       duration: "",
       hairstyle: "",
@@ -24,14 +24,13 @@ class CreateAppointment extends React.Component {
     e.preventDefault();
     const appointment = this.state;
     API.scheduleAppointment(appointment);
-    console.log(appointment);
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleDayChange = day => {
-    console.log(moment(day).format("LL"));
-    this.setState({ day: moment(day).format("LL") });
+  handleDayChange = date => {
+    console.log(moment(date).format("LLLL"));
+    this.setState({ date: moment(date).format("LLLL") });
   };
 
   render() {
