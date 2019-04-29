@@ -25,30 +25,31 @@ class NewsFeedContainer extends React.Component {
   handleClick = id => this.setState({ activeConversations: id });
 
   handleReceivedConversation = response => {
-    const { conversation } = response;
+    console.log(response);
     this.setState({
-      conversations: [...this.state.conversations, conversation]
+      conversations: [...this.state.conversations, response]
     });
   };
 
   handleReceivedComment = response => {
-    const { comment } = response;
-    console.log(comment);
+    console.log(response);
     const conversations = [...this.state.conversations];
-    const conversation = conversations.find(conversation =>
-      console.log(conversation.id === comment.conversation_id)
+    const conversation = conversations.find(
+      conversation => conversation.id === response.conversation_id
     );
-    conversation.comments = [...conversation.comments, comment];
+    console.log(conversation);
+    conversation.comments = [...conversation.comments, response];
+
     this.setState({ conversations });
   };
 
   render() {
+    console.log(this.state.conversations);
     const findActiveConversation = (conversations, activeConversation) => {
       return conversations.find(
         conversation => conversation.id === activeConversation
       );
     };
-
     return (
       <React.Fragment>
         {this.state.conversations.length > 0 ? (
@@ -59,7 +60,7 @@ class NewsFeedContainer extends React.Component {
         ) : null}
         <div className="newsfeed-container">
           <ActionCableConsumer
-            channel={{ channel: "conversations_channel" }}
+            channel={{ channel: "ConversationsChannel" }}
             onReceived={this.handleReceivedConversation}
           />
 
@@ -70,6 +71,7 @@ class NewsFeedContainer extends React.Component {
                 this.state.activeConversations
               )}
               activeConversations={this.state.activeConversations}
+              handleReceivedComment={this.handleReceivedComment}
             />
           ) : null}
 
@@ -77,6 +79,7 @@ class NewsFeedContainer extends React.Component {
             conversations={this.state.conversations}
             activeConversations={this.state.activeConversations}
             handleClick={this.handleClick}
+            handleReceivedConversation={this.handleReceivedConversation}
           />
         </div>
       </React.Fragment>

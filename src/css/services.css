@@ -26,6 +26,8 @@
   max-width: 90vw;
   margin: 0 auto;
   color: var(--light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .service-item {
@@ -33,10 +35,22 @@
   position: relative;
   padding: 60px;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  list-style-type: none;
+  text-align: center;
+  font-size: 25px;
 }
 
 .service-item .fas {
   font-size: 60px;
   margin-bottom: 30px;
   color: var(--light);
+}
+
+.service-button {
+  border: 1px solid var(--light);
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 0.4rem;
+  margin: 10px;
+  font-weight: 500;
 }

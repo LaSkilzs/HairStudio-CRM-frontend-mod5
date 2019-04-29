@@ -24,6 +24,8 @@ class NewsFeedList extends React.Component {
     if (API.sendComment(comment)) {
       this.setState({ text: "" });
     }
+    this.setState({ text: "" });
+    return alert("text not saved");
   };
 
   render() {
@@ -32,9 +34,9 @@ class NewsFeedList extends React.Component {
         <React.Fragment>
           <ul id="comments">
             <h1 className="feeds-header">News Feed Title</h1>
-            {this.props.conversation.comments.map(comment => {
+            {this.props.conversation.comments.map((comment, index) => {
               return (
-                <li className="comment">
+                <li className="comment" key={index}>
                   <div className="avatar" />
 
                   <ul id="replies">
@@ -54,7 +56,9 @@ class NewsFeedList extends React.Component {
                           {/* {comment.username} */}
                           <span className="comments-span">date posted</span>
                         </header>
-                        <p className="comment-para">{comment.text}</p>
+                        <p className="comment-para" key={index}>
+                          {comment.text}
+                        </p>
                       </div>
                     </li>
                   </ul>
@@ -70,6 +74,7 @@ class NewsFeedList extends React.Component {
                 name="comment"
                 className="news-input"
                 placeholder="Enter comment"
+                value={this.state.text}
                 onChange={e =>
                   this.handleChange(
                     e.target.value,

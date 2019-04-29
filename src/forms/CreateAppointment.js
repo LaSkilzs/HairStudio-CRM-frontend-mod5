@@ -3,37 +3,34 @@ import React from "react";
 import "react-day-picker/lib/style.css";
 import moment from "moment";
 import DayPickerInput from "react-day-picker/DayPickerInput";
+import API from "../API";
 
 class CreateAppointment extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      day: "",
+      date: "",
       start_time: "",
       duration: "",
       hairstyle: "",
       status: "pending",
       service_total: 0.0,
       stylist_id: 1,
-      user_id: 40,
-      selectedDate: undefined
+      user_id: this.props.user.id
     };
   }
 
   onSubmit = e => {
     e.preventDefault();
     const appointment = this.state;
-    // if (API.scheduleAppointment(appointment)) {
-    //   alert("appointment created");
-    // }
-    console.log(appointment);
+    API.scheduleAppointment(appointment);
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-  handleDayChange = day => {
-    console.log(moment(day).format("LL"));
-    this.setState({ day: moment(day).format("LL") });
+  handleDayChange = date => {
+    console.log(moment(date).format("LLLL"));
+    this.setState({ date: moment(date).format("LLLL") });
   };
 
   render() {
@@ -82,7 +79,6 @@ class CreateAppointment extends React.Component {
               className="select"
               placeholder="user_id"
               name="user_id"
-              onChange={e => this.handleChange(e)}
             />
             <select
               name="status"

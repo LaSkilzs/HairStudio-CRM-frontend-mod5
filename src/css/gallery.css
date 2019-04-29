@@ -1,6 +1,7 @@
 #Gallery {
   padding: 10px 0;
   background-color: var(--light);
+  height: 100vh;
 }
 
 .gallery-container {

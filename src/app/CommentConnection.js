@@ -12,7 +12,7 @@ const CommentConnection = props => {
               channel: "CommentsChannel",
               conversation: conversation.id
             }}
-            onReceived={console.log}
+            onReceived={props.handleReceivedComment}
           />
         );
       })}

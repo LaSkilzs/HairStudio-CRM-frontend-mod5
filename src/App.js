@@ -8,7 +8,7 @@ import Services from "./pages/Services";
 import Form from "./pages/Form";
 import Testimonial from "./pages/Testimonial";
 import Contact from "./pages/Contact";
-import Footer from "./pages/Footer";
+// import Footer from "./pages/Footer";
 import LoginCard from "./app/LoginCard";
 import Register from "./forms/Register";
 import Appointment from "./appointment/Appointment";
@@ -20,7 +20,7 @@ import ContactUs from "./forms/ContactUs";
 import CreateAppointment from "./forms/CreateAppointment";
 import CreateHairCard from "./forms/CreateHairCard";
 import CreateProfile from "./forms/CreateProfile";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import API from "./API";
 
 class App extends React.Component {
@@ -49,20 +49,27 @@ class App extends React.Component {
   loggedOut = () => {
     localStorage.removeItem("jwt", "");
     localStorage.removeItem("username", "");
-    localStorage.removeItem("roe", "");
+    localStorage.removeItem("role", "");
     this.setState({ username: "", user: {}, jwt: "" });
   };
 
   updateUser = user => {
     console.log("updateUser", user);
-    return this.setState({
-      user,
-      username: user.username,
-      profiles: user.profiles[0],
-      appointments: user.appointments,
-      hair_cards: user.hair_cards[0],
-      personality: user.hair_personalities[0].name
-    });
+    if (user.profiles.length > 0 && user.hair_cards.length > 0) {
+      return this.setState({
+        user,
+        username: user.username,
+        profiles: user.profiles[0],
+        appointments: user.appointments,
+        hair_cards: user.hair_cards[0],
+        personality: user.hair_personalities[0].name
+      });
+    } else {
+      return this.setState({
+        user,
+        username: user.username
+      });
+    }
   };
 
   async componentDidMount() {
@@ -93,20 +100,20 @@ class App extends React.Component {
           loggedOut={this.loggedOut}
         />
         <Switch>
+          <Route exact path="/" component={Welcome} />
+          <Route path="/gallery" component={Gallery} />
           <Route
             exact
-            path="/"
-            render={routerProps => (
-              <Link to="/">
-                <Welcome />
-                <Gallery />
-                <Services services={this.state.services} />
-                <Testimonial />
-                <About />
-                <Contact salon={this.state.salon} />
-                <Footer />
-              </Link>
-            )}
+            path="/services"
+            render={() => <Services services={this.state.services} />}
+          />
+          <Route path="/testimonial" component={Testimonial} />
+          <Route path="/about" component={About} />
+          <Route path="/form" component={Form} />
+          <Route
+            exact
+            path="/contact"
+            render={() => <Contact salon={this.state.salon} />}
           />
           <Route
             path="/login"
@@ -173,12 +180,18 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/haircard" component={CreateHairCard} />
+          <Route
+            path="/haircard"
+            component={() => <CreateHairCard user={this.state.user} />}
+          />
           <Route
             path="/createprofile"
             component={() => <CreateProfile user={this.state.user} />}
           />
-          <Route path="/createappointment" component={CreateAppointment} />
+          <Route
+            path="/createappointment"
+            component={() => <CreateAppointment user={this.state.user} />}
+          />
           <Route path="/contactus" component={ContactUs} />
           <Route component={() => <h1>Page Not Found</h1>} />
         </Switch>

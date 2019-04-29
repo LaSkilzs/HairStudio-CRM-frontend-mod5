@@ -1,32 +1,33 @@
 import React from "react";
 import "./forms.css";
+import API from "../API";
 
 class CreateHairCard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      "suffered_from_hair_loss?": false,
-      "been_diagnosed_with_alopecia?": false,
-      "take_any_medication?": false,
-      "been_pregnant_in_the_last_6_months?": false,
-      "suffer_from_psoriasis_to_the_scalp?": false,
-      "suffer_from_ezcema_to_the_scalp?": false,
-      "have_a_sensitive_scalp?": false,
-      "any_known_allergies?": false,
-      "which_ones?": "",
-      "frequently_swim_or_go_to_the_gym?": false,
-      "currently_have_colour_in_your_hair?": false,
-      "which_method?": "",
-      "last_time_colored?": "",
-      "used_hair_extensions_before?": false,
-      "which_type_did_you_use?": "",
-      "have_a_perm_or_relaxer?": false,
-      "last_time_you_had_a_relaxer?": "",
-      "wash_frequency?": "",
+      suffered_from_hair_loss: false,
+      been_diagnosed_with_alopecia: false,
+      take_any_medication: false,
+      been_pregnant_in_the_last_6_months: false,
+      suffer_from_psoriasis_to_the_scalp: false,
+      suffer_from_ezcema_to_the_scalp: false,
+      have_a_sensitive_scalp: false,
+      any_known_allergies: false,
+      which_ones: "",
+      frequently_swim_or_go_to_the_gym: false,
+      currently_have_colour_in_your_hair: false,
+      which_method: "",
+      last_time_colored: "",
+      used_hair_extensions_before: false,
+      which_type_did_you_use: "",
+      have_a_perm_or_relaxer: false,
+      last_time_you_had_a_relaxer: "",
+      wash_frequency: "",
       hair_type: "",
       hair_is: "",
       length: "",
-      user_id: 0,
+      user_id: this.props.user.id,
       stylist_id: 0,
       hair_personality_id: 0
     };
@@ -34,8 +35,9 @@ class CreateHairCard extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const message = this.state;
-    console.log(message);
+    const card = this.state;
+    API.createHairCard(card);
+    console.log(card);
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
