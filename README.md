@@ -21,6 +21,9 @@ From a technical learining perspective.This project was created using react/redu
 3. CSS
 
 ## Illustration/GIFS.
+(click image for demo)
+
+[![/Users/lafountain/Desktop/Portfolio Projects/Shear Elegance/hairstudio-app/shear_elegance.png](http://img.youtube.com/vi/Ld7kXqiSvJo/0.jpg)](http://www.youtube.com/watch?v=Ld7kXqiSvJo "hairsalonapp")
 
 ## Authors
 
